@@ -1,0 +1,32 @@
+.reg-view{
+  // background-color: red;
+
+  .inputTypes{
+    margin-bottom: 1vh ;
+    // border: 1px solid red;
+  }
+
+
+.input-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.input-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 2px;
+    background: #EEE;
+    z-index: 999;
+}
+.input-dropdown .dropdown div {
+    cursor: pointer;
+    padding: 2px 5px;
+}
+.input-dropdown input:focus + .dropdown {
+    display: block;
+}
+
+}

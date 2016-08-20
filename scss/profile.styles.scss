@@ -1,0 +1,41 @@
+.profile-view{
+
+  ::-webkit-input-placeholder {
+     color: red;
+  }
+
+.imageContainer{
+  font-size: 3vw;
+      // background-color: red;
+  .profileImage{
+    width: 50%;
+    height: 50%;
+    // background-color: teal;
+    margin: 0 auto;
+  }
+  img{
+    width: 100% ;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 8px solid #e2e2e2;
+  }
+}
+.card {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: ghostwhite;
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+      color: black !important;
+    }
+}
+a{
+  color: green;
+}
+//
+
+
+
+}

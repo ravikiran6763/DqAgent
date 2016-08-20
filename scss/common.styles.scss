@@ -1,0 +1,26 @@
+.tabs-top.tabs-striped .tab-item.tab-item-active,{
+    margin-top: 1px;
+    border-width: 0px 0px 2px 0px !important;
+    border: 1px solid teal;
+}
+
+.tab-item .icon {
+    display: block;
+    margin: 0 auto;
+    height: 32px;
+    font-size: 32px;
+    color: teal;
+}
+
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+    top: 0;
+    color: teal;
+}
+.tabs-icon-top > .tabs .tab-item{
+  color: teal !important;
+}
+
+.tabs-top.tabs-striped .tab-item.tab-item-active{
+  color: teal !important;
+
+}
