@@ -29,29 +29,30 @@ AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStor
 
 
         var docRegDetails={
-          fname : $doctor.fname,
-          doctorMname: $doctor.mname,
-          doctorLname : $doctor.lname,
-          doctorEmail: $doctor.email,
-          doctorPhone : $doctor.mobile,
-          doctorDegrees : $doctor.degrees,
-          doctorSince : $doctor.since,
-          doctorAge : $doctor.age,
-          doctorSex: $doctor.sex,
-          doctorCountry : $doctor.country,
-          doctorCity : $doctor.city,
-          doctorAddress1 : $doctor.address1,
-          doctorAddress2 : $doctor.address2,
-          doctorPin : $doctor.pin,
-          doctorLanguage1 : $doctor.language1,
-          doctorLanguage2 : $doctor.language2,
-          doctorBankName : $doctor.bankName,
-          doctorAccNum : $doctor.accNum,
-          doctorIfsc : $doctor.ifsc,
-          doctorFee : $doctor.fee,
-          doctorSpeciality : $doctor.speciality,
-          doctorMciReg : $doctor.mciReg,
-          doctorMciRegNum:$doctor.mciNum,
+          fname : $scope.doctor.fname,
+          mname: $scope.doctor.mname,
+          lname : $scope.doctor.lname,
+          email: $scope.doctor.email,
+          mobile : $scope.doctor.mobile,
+          degrees : $scope.doctor.degrees,
+          since : $scope.doctor.since,
+          age : $scope.doctor.age,
+          sex: $scope.doctor.sex,
+          country : $scope.doctor.country,
+          city : $scope.doctor.city,
+          address1 : $scope.doctor.address1,
+          address2 : $scope.doctor.address2,
+          pin : $scope.doctor.pin,
+          language1 : $scope.doctor.language1,
+          language2 : $scope.doctor.language2,
+          bankName : $scope.doctor.bankName,
+          accNum : $scope.doctor.accNum,
+          ifsc : $scope.doctor.ifsc,
+          fee : $scope.doctor.fee,
+          speciality : $scope.doctor.speciality,
+          mciReg : $scope.doctor.mciReg,
+          mciNum:$scope.doctor.mciNum,
+          regBy:$localStorage.user,
           image1:$rootScope.imgURI1,
           image2:$rootScope.imgURI2,
           image3:$rootScope.imgURI3
@@ -62,6 +63,9 @@ AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStor
         console.log('successfull data', response);
         $scope.registeredDoc = response;
         $scope.doctor={};
+        $rootScope.imgURI1='';
+        $rootScope.imgURI2='';
+        $rootScope.imgURI3='';
      }).catch(function(error){
          console.log('failure data', error);
      });

@@ -51,6 +51,13 @@
     $doctorSpeciality = $doctorDetails->speciality;
     $doctorMciReg = $doctorDetails->mciReg;
     $doctorMciRegNum=$doctorDetails->mciNum;
+		$registerdBy=$doctorDetails->regBy;
+
+		$docImg1=$doctorDetails->image1;
+		$docImg2=$doctorDetails->image2;
+		$docImg3=$doctorDetails->image3;
+
+
 
 		$letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		// $specialChar="!@#$%&*()_+=?";
@@ -62,18 +69,12 @@
 
 			$docPwd = base64_encode($docPwd);
 
-
-
 			// echo $retval;
 
-
-
-			 $sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$doctorSpeciality','$doctorMciReg','$doctorMciRegNum','8792618138')";
+		 $sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$doctorSpeciality','$doctorMciReg','$doctorMciRegNum','$registerdBy')";
 			$retval = mysql_query( $sql, $dbhandle );
-
 			if(mysql_error())
 			// if(!$retval)
-
 			{
 				// die('Could not enter data: ' . mysql_error());
 
@@ -83,6 +84,10 @@
 			{
 
 				echo "Query Submitted";
+
+					$sql1 = "INSERT INTO doctorImages (docPhone,docImage1,docImage2,docImage3) values ('$doctorPhone','$docImg1','$docImg2','$docImg3')";
+					$retval1 = mysql_query( $sql1, $dbhandle );
+
 				 //PASSWORD FOR DOCTOR TO LOGIN INTO VSEE
                 //                 $password = "DQ_doctor";
                 //                 //CREATE USERS IN VSEE FROM THE BELOW URL
