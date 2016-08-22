@@ -5,6 +5,7 @@ var AgentApp=angular.module('starter', [
   'starter.directives',
   'ui.multiselect',
   'ngStorage',
+  'ngCordova',
   'ngMask'
 ])
 

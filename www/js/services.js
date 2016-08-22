@@ -2,11 +2,6 @@ angular.module('starter.services', [])
 
 .service('agentService', function ($http,$rootScope, BASE_URL,API, $q){
 
-  // console.log(BASE_URL);
-	// this.get = function(feedSourceUrl) {
-	// console.log('service');
-	// }
-
   this.getMedicalSpecialist = function(){
         var deferred = $q.defer();
         console.log(BASE_URL.url + API.getMedicalSpecialist);
@@ -39,7 +34,7 @@ angular.module('starter.services', [])
       this.registerDoc = function(docDetails){
         console.log('service',docDetails);
             var deferred = $q.defer();
-            console.log(BASE_URL.url + API.doctorRegistration);
+            // console.log(BASE_URL.url + API.doctorRegistration);
             $http.post(BASE_URL.url + API.doctorRegistration,docDetails).then ( function(response) {
                 if(response.status === 200){
                   deferred.resolve(response.data);

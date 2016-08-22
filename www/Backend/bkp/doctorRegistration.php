@@ -68,7 +68,7 @@
 
 
 
-			 $sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$doctorSpeciality','$doctorMciReg','$doctorMciRegNum','8792618138')";
+			$sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$doctorSpeciality','$doctorMciReg','$doctorMciRegNum','8792618138')";
 			$retval = mysql_query( $sql, $dbhandle );
 
 			if(mysql_error())

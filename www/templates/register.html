@@ -3,7 +3,7 @@
         <ion-list id="doctorRegistrationForm-list2">
 
             <!-- <input-dropdown ng-model="preference" list="values" on-select="pick(value)"></input-dropdown> {{preference}} -->
-
+<form id="doctorRegistrationForm-form5" class="list " name="myForm">
             <label class="item item-input inputTypes  " id="doctorRegistrationForm-input8">
                 <span class="input-label">First Name</span>
 
@@ -142,8 +142,8 @@
                 <input type="number" placeholder="MCI Number" ng-model="doctor.mciNum" required>
             </label>
 
-            <ion-list id="doctorRegistrationForm-list3">
-                <ion-item class="item-icon-right  inputTypes " id="doctorRegistrationForm-list-item1">Image -1
+            <!-- <ion-list id="doctorRegistrationForm-list3">
+                <ion-item class="item-icon-right  inputTypes " ng-Click="changePhoto();" id="doctorRegistrationForm-list-item1">Image -1
                     <i class="icon ion-image"></i>
                 </ion-item>
                 <ion-item class="item-icon-right  inputTypes " id="doctorRegistrationForm-list-item2">Image -2
@@ -152,11 +152,39 @@
                 <ion-item class="item-icon-right  inputTypes " id="doctorRegistrationForm-list-item3">Image -3
                     <i class="icon ion-image"></i>
                 </ion-item>
-            </ion-list>
+            </ion-list> -->
+
+            <div class="card">
+              <div class="item item-divider">
+              Doctor Images
+              </div>
+              <div class="item item-text-wrap">
+                  <div class="row">
+                    <div class="col col-33 " ng-Click="takePhoto1();">
+                      <img  ng-hide="imgURI1 == null " ng-src="{{imgURI1}}"  spinner-on-load>
+                      <img  ng-show="imgURI1 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                    <div class="col col-33 " ng-Click="takePhoto2();">
+                      <img  ng-hide="imgURI2 == null " ng-src="{{imgURI2}}"  spinner-on-load>
+                      <img  ng-show="imgURI2 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                    <div class="col col-33 " ng-Click="takePhoto3();">
+                      <img  ng-hide="imgURI3 == null " ng-src="{{imgURI3}}"   spinner-on-load>
+                      <img  ng-show="imgURI3 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+
+
         </ion-list>
 
-        <form id="doctorRegistrationForm-form5" class="list ">
-            <button id="doctorRegistrationForm-button6" class=" button button-balanced  button-block " ng-click="registerDoctor(doctor);">Submit</button>
+
+            <button id="doctorRegistrationForm-button6" class=" button button-balanced  button-block " ng-disabled="{{ myForm.$invalid }}" ng-click="registerDoctor(doctor);">Submit</button>
         </form>
     </ion-content>
 </ion-view>
