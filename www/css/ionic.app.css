@@ -9815,8 +9815,30 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.reg-view .submitted input.ng-invalid:not(:focus) {
+  border: 2px solid red; }
+
+.reg-view .submitted label.item.has-error {
+  border-bottom: 2px solid red; }
+
+.reg-view label.item.has-error-lr {
+  border: 2px solid red; }
+
+.reg-view label.item.valid-lr {
+  border: 1px solid green; }
+
+.reg-view .form-errors {
+  margin: 5px 0; }
+
+.reg-view .form-error {
+  padding: 2px 0 2px 16px;
+  color: red; }
+
 .reg-view .inputTypes {
   margin-bottom: 1vh; }
+
+.reg-view .item-input {
+  margin-bottom: 1vh !important; }
 
 .reg-view .input-dropdown {
   position: relative;
@@ -9857,33 +9879,30 @@ a.button {
     width: 100%;
     height: 75px; }
 
-.profile-view ::-webkit-input-placeholder {
-  color: red; }
-
-.profile-view .imageContainer {
-  font-size: 3vw; }
-  .profile-view .imageContainer .profileImage {
-    width: 50%;
-    height: 50%;
-    margin: 0 auto; }
-  .profile-view .imageContainer img {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: 8px solid #e2e2e2; }
-
-.profile-view .card {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  background-color: ghostwhite; }
-  .profile-view .card .row {
-    margin-right: 0;
-    margin-left: 0;
-    color: black !important; }
-
-.profile-view a {
-  color: green; }
+.profile-view {
+  background-color: #e2e2e2 !important; }
+  .profile-view ::-webkit-input-placeholder {
+    color: red; }
+  .profile-view .imageContainer {
+    font-size: 3vw; }
+    .profile-view .imageContainer .profileImage {
+      width: 50%;
+      height: 50%;
+      margin: 0 auto; }
+    .profile-view .imageContainer img {
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 8px solid #e2e2e2; }
+  .profile-view .row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 5px 0 6px 0; }
+  .profile-view .col {
+    margin: 4px 0 5px 10px; }
+  .profile-view a {
+    color: green;
+    margin: 0 0 0 41vw; }
 
 .tabs-top.tabs-striped .tab-item.tab-item-active {
   margin-top: 1px;

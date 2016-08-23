@@ -1,5 +1,14 @@
-AgentApp.controller('HomeTabCtrl', function($scope,$ionicLoading, $localStorage, $rootScope,  $state, agentService) {
+AgentApp.controller('HomeTabCtrl', function($scope,$ionicLoading, $localStorage, $rootScope, $timeout, $state, agentService) {
   console.log('HomeTabCtrl');
+  $ionicLoading.show({
+        template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+      });
+
+      $timeout(function () {
+        console.log('timeout');
+       $ionicLoading.hide();
+     }, 5000);
+
 
   var agentDetails={
     userNum : $localStorage.user,

@@ -1,6 +1,17 @@
-AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $cordovaCamera, cameraService, agentService) {
-
+AgentApp.controller('registerTabCtrl', function($scope, $ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
+console.log('regController');
   $scope.doctor={};
+  // $rootScope.imgURI1='';
+  // $rootScope.imgURI2='';
+  // $rootScope.imgURI3='';
+
+  $scope.sendForm = function($event,form)
+  {
+       $event.preventDefault();
+       $scope.submitted = true;
+
+  };
+
 
     var range = [];
     for(var i=1980;i<2016;i++) {
@@ -17,65 +28,77 @@ AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStor
        console.log('failure data', error);
    });
 
-  $scope.registerDoctor=function(){
+$scope.registerDoc=function(isFormValid){
+
+  if(isFormValid) {
+    console.log('isFormValid ', isFormValid)
+
+            var docRegDetails={
+              fname : $scope.doctor.fname,
+              mname: $scope.doctor.mname,
+              lname : $scope.doctor.lname,
+              email: $scope.doctor.email,
+              mobile : $scope.doctor.mobile,
+              degrees : $scope.doctor.degrees,
+              since : $scope.doctor.since,
+              age : $scope.doctor.age,
+              sex: $scope.doctor.sex,
+              country : $scope.doctor.country,
+              city : $scope.doctor.city,
+              address1 : $scope.doctor.address1,
+              address2 : $scope.doctor.address2,
+              pin : $scope.doctor.pin,
+              language1 : $scope.doctor.language1,
+              language2 : $scope.doctor.language2,
+              bankName : $scope.doctor.bankName,
+              accNum : $scope.doctor.accNum,
+              ifsc : $scope.doctor.ifsc,
+              fee : $scope.doctor.fee,
+              speciality : $scope.doctor.speciality,
+              mciReg : $scope.doctor.mciReg,
+              mciNum:$scope.doctor.mciNum,
+              regBy:$localStorage.user,
+              image1:$rootScope.imgURI1,
+              image2:$rootScope.imgURI2,
+              image3:$rootScope.imgURI3
+            };
+
+              agentService.registerDoc(docRegDetails).then(function(response){
+              console.log('successfull data', response);
+              $scope.registeredDoc = response;
+              console.log($scope.registeredDoc);
+              if($scope.registeredDoc){
+                $ionicLoading.show({
+                      template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
+                    });
+
+                    $timeout(function () {
+                      console.log('timeout');
+                     $ionicLoading.hide();
+                   }, 8000);
+                 $window.location.reload();
+                //  $scope.doctor={};
+              }
+
+
+
+           }).catch(function(error){
+               console.log('failure data', error);
+           });
+
+
+  }
+}
+
+  $scope.signIn=function(){
     console.log($scope.doctor);
-        // console.log($rootScope.imgURI1);
-        // console.log($rootScope.imgURI2);
-        // console.log($rootScope.imgURI3);
+    if($scope.signinForm.$valid) {
+       console.log('true');
+     }
 
-
-
-
-
-
-        var docRegDetails={
-          fname : $scope.doctor.fname,
-          mname: $scope.doctor.mname,
-          lname : $scope.doctor.lname,
-          email: $scope.doctor.email,
-          mobile : $scope.doctor.mobile,
-          degrees : $scope.doctor.degrees,
-          since : $scope.doctor.since,
-          age : $scope.doctor.age,
-          sex: $scope.doctor.sex,
-          country : $scope.doctor.country,
-          city : $scope.doctor.city,
-          address1 : $scope.doctor.address1,
-          address2 : $scope.doctor.address2,
-          pin : $scope.doctor.pin,
-          language1 : $scope.doctor.language1,
-          language2 : $scope.doctor.language2,
-          bankName : $scope.doctor.bankName,
-          accNum : $scope.doctor.accNum,
-          ifsc : $scope.doctor.ifsc,
-          fee : $scope.doctor.fee,
-          speciality : $scope.doctor.speciality,
-          mciReg : $scope.doctor.mciReg,
-          mciNum:$scope.doctor.mciNum,
-          regBy:$localStorage.user,
-          image1:$rootScope.imgURI1,
-          image2:$rootScope.imgURI2,
-          image3:$rootScope.imgURI3
-        };
-
-
-        agentService.registerDoc(docRegDetails).then(function(response){
-        console.log('successfull data', response);
-        $scope.registeredDoc = response;
-        $scope.doctor={};
-        $rootScope.imgURI1='';
-        $rootScope.imgURI2='';
-        $rootScope.imgURI3='';
-     }).catch(function(error){
-         console.log('failure data', error);
-     });
     // console.log($scope.doctor.mciReg);
   };
 
-  $scope.values = ['2000', '2001', '2002'];
-     $scope.pick = function(value) {
-         console.log('Picked', value)
-     };
 
      $scope.takePhoto1 = function(){
        var options = {
@@ -97,16 +120,6 @@ AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStor
                image:$rootScope.imgURI1,
                patientPhone:$rootScope.patient
              }
-
-          //    cameraService.uploadPicture(imageUploadData).then(function(response){
-          //      $scope.uploadedData=response;
-          //      // $ionicLoading.hide();
-          //      console.log($scope.uploadedData);
-           //
-           //
-          //  }).catch(function(error){
-          //  console.log('failure data', error);
-          //  })
 
          }, function (err) {
              // An error occured. Show a message to the user
@@ -160,12 +173,12 @@ AgentApp.controller('registerTabCtrl', function($scope,$ionicLoading, $localStor
                patientPhone:$rootScope.patient
              }
 
-
          }, function (err) {
              // An error occured. Show a message to the user
          });
      };
 
+// $ionicLoading.hide();
 
 
 });

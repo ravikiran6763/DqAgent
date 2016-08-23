@@ -1,0 +1,171 @@
+
+            <!-- <input-dropdown ng-model="preference" list="values" on-select="pick(value)"></input-dropdown> {{preference}} -->
+            <form novalidate id="doctorRegistrationForm-form5" class="list " name="doctorForm" ng-submit="sendForm($event)" >
+            <label class="item item-input inputTypes  " id="doctorRegistrationForm-input8" ng-class="{ 'has-error' : doctorForm.fname.$invalid}">
+                <span class="input-label">First Name</span>
+
+                <input type="text" placeholder="First Name" ng-model="doctor.fname" required>
+                <!-- <i class="icon ion-ios-email placeholder-icon"></i> -->
+
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input11" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Middle Name</span>
+                <input type="text" placeholder="Middle Name" ng-model="doctor.mname">
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input9" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Last Name</span>
+                <input type="text" placeholder="Last Name" ng-model="doctor.lname" required>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input12" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Age</span>
+                <input type="number" placeholder="Age" ng-model="doctor.age" mask-clean='true' mask='99' restrict="reject" clean="true" >
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input13" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Degrees</span>
+                <input type="text" placeholder="Degrees" ng-model="doctor.degrees" required>
+            </label>
+
+            <label class = "item item-input item-select inputTypes  " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+                <!-- <i class="icon ion-ios-email placeholder-icon"></i> -->
+              Practicing Since
+              </div>
+
+              <select ng-model="doctor.since" required style="width:35%;">
+                <option ng-repeat="year in range" values={{year}}>{{year}}</option>
+              </select>
+            </label>
+
+            <label class = "item item-input item-select inputTypes " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+              Gender
+              </div>
+
+              <select ng-model="doctor.sex" required>
+                <option value='Male' selected>Male</option>
+                <option value='Female'>Female</option>
+                <option value='None'>None</option>
+              </select>
+            </label>
+
+            <label class = "item item-input item-select inputTypes " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+              Country
+              </div>
+
+              <select ng-model="doctor.country" required>
+                <option value='India' selected>India</option>
+                <option value='US'>US</option>
+              </select>
+            </label>
+
+            <label class = "item item-input item-select inputTypes " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+              City
+              </div>
+
+              <select ng-model="doctor.city" required>
+                <option selected value='Bengaluru'>Bengaluru</option>
+                <option value='Mumbai'>Mumbai</option>
+                <option value='Delhi'>Delhi</option>
+                <option value='Chennai'>Chennai</option>
+              </select>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input18" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Address Line-1</span>
+                <input type="text" placeholder="Address" ng-model="doctor.address1">
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input19" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Address Line-2</span>
+                <input type="text" placeholder="Address" ng-model="doctor.address2">
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input20" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Pin</span>
+                <input type="number" placeholder="Pin" ng-model="doctor.pin" mask-clean='true' mask='999999' restrict="reject" clean="true">
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input21" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >Email</span>
+                <input type="email" placeholder="Email" ng-model="doctor.email" required>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input22" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >Language -1</span>
+                <input type="text" placeholder="Language" ng-model="doctor.language1" required >
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input24" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">Language -2</span>
+                <input type="text" placeholder="Language" ng-model="doctor.language2" >
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input23" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >Mobile</span>
+                <input type="tel" placeholder="Mobile" ng-model="doctor.mobile" mask-clean='true' mask='9999999999' restrict="reject" clean="true" required>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input25" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" required>Bank Name</span>
+                <input type="text" placeholder="Bank" ng-model="doctor.bankName" >
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input26" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >A/C Number</span>
+                <input type="number" placeholder="A/C Number" ng-model="doctor.accNum" required>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input27" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >IFSC</span>
+                <input type="text" placeholder="IFSC" ng-model="doctor.ifsc" required>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input28" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label" >Consulting Fee</span>
+                <input type="number" placeholder="Fee" ng-model="doctor.fee" required>
+            </label>
+            <label class = "item item-input item-select inputTypes " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+              Specialities
+              </div>
+              <select ng-model="doctor.speciality" required>
+                <option ng-repeat="sp in specialitiesList" value={{sp.special}}>{{sp.special}}</option>
+              </select>
+            </label>
+
+            <label class = "item item-input item-select inputTypes " ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+              <div class = "input-label">
+              MCI Registered
+              </div>
+
+              <select ng-model="doctor.mciReg" required>
+                <option value='Yes'>Yes</option>
+                <option value='No'>No</option>
+              </select>
+            </label>
+            <label class="item item-input inputTypes " id="doctorRegistrationForm-input31" ng-class="{ 'has-error' : doctorForm.username.$invalid}">
+                <span class="input-label">MCI Number</span>
+                <input type="number" placeholder="MCI Number" ng-model="doctor.mciNum" required>
+            </label>
+
+            <div class="card">
+              <div class="item item-divider">
+              Doctor Images
+              </div>
+              <div class="item item-text-wrap">
+                  <div class="row">
+                    <div class="col col-33 " ng-Click="takePhoto1();">
+                      <img  ng-hide="imgURI1 == null " ng-src="{{imgURI1}}"  spinner-on-load>
+                      <img  ng-show="imgURI1 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                    <div class="col col-33 " ng-Click="takePhoto2();">
+                      <img  ng-hide="imgURI2 == null " ng-src="{{imgURI2}}"  spinner-on-load>
+                      <img  ng-show="imgURI2 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                    <div class="col col-33 " ng-Click="takePhoto3();">
+                      <img  ng-hide="imgURI3 == null " ng-src="{{imgURI3}}"   spinner-on-load>
+                      <img  ng-show="imgURI3 == null " ng-src="img/patientAvatar.png"   spinner-on-load>
+
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+
+
+        </ion-list>
+            <button id="doctorRegistrationForm-button6" class=" button button-balanced  button-block "  ng-click="registerDoctor(doctor);">Submit</button>
+        </form>

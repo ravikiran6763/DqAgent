@@ -1,5 +1,9 @@
 .profile-view{
 
+  // background: url(../img/hyj1RBBJQkS81GoEbyUM_background.png) no-repeat center;
+  // background-size:cover;
+  background-color: #e2e2e2 !important;
+
   ::-webkit-input-placeholder {
      color: red;
   }
@@ -20,19 +24,17 @@
     border: 8px solid #e2e2e2;
   }
 }
-.card {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    background-color: ghostwhite;
-    .row {
-      margin-right: 0;
-      margin-left: 0;
-      color: black !important;
-    }
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 5px 0 6px 0;
+}
+.col{
+      margin: 4px 0 5px 10px;
 }
 a{
   color: green;
+  margin: 0 0 0 41vw;
 }
 //
 

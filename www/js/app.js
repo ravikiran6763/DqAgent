@@ -27,7 +27,8 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
     .state('tabs', {
       url: '/tab',
       abstract: true,
-      templateUrl: 'templates/tabs.html'
+      templateUrl: 'templates/tabs.html',
+      controller:'tabsCtrl'
     })
 
     .state('tabs.home', {

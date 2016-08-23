@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $rootScope, $state, $localStorage, $ionicPopup, agentService) {
+AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $rootScope, $state, $localStorage, $ionicPopup, agentService){
   $scope.user={};
 
   $scope.sendForm = function($event,form)

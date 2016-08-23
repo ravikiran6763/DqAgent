@@ -1,6 +1,6 @@
 <ion-view  hide-nav-bar="true" hide-back-button="true" id="page6" class="profile-view" cache-view="false">
-    <ion-content padding="true" style="background: url(img/hyj1RBBJQkS81GoEbyUM_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" ng-repeat="agent in agentDetails">
-<div class="card ">
+    <ion-content class="manual-ios-statusbar-padding" ng-repeat="agent in agentDetails">
+
     <div class="imageContainer ">
       <div class="profileImage">
         <img  ng-hide="agent.agentPic == null " ng-src="{{agent.agentPic}}"   spinner-on-load>
@@ -10,32 +10,31 @@
 
     <div class="row">
       <div class="col">Name</div>
-      <div class="col-67">{{agent.agentFname}} {{agent.agentMname}} {{agent.agentLname}}</div>
+      <div class="col  col-50">{{agent.agentFname}} {{agent.agentMname}} {{agent.agentLname}}</div>
     </div>
     <div class="row">
       <div class="col">Gender</div>
-      <div class="col-67">{{agent.agentSex}}</div>
+      <div class="col  col-50">{{agent.agentSex}}</div>
     </div>
     <div class="row">
           <div class="col">Email</div>
-          <div class="col col-67">{{agent.agentEmail}}</div>
+          <div class="col  col-50">{{agent.agentEmail}}</div>
     </div>
     <div class="row">
           <div class="col">Phone</div>
-          <div class="col col-67">{{agent.agentPhone}}</div>
+          <div class="col  col-50">{{agent.agentPhone}}</div>
     </div>
     <div class="row">
           <div class="col">City</div>
-          <div class="col col-67">{{agent.agentCity}}</div>
+          <div class="col  col-50">{{agent.agentCity}}</div>
     </div>
     <div class="row">
-          <div class="col">Doctors Registered</div>
-          <div class="col ">12{{agent.agentAge}}</div>
+          <div class="col col-50 ">Doctors Registered</div>
+          <div class="col  ">12{{agent.agentAge}}</div>
     </div>
 
 
-  </div>
-    
+
     <a  href="#/sign-in" ng-click="termsAndCond()">Signout</a>
 
 

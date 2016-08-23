@@ -1,11 +1,40 @@
 .reg-view{
+
+  .submitted input.ng-invalid:not(:focus) {
+    border:2px solid red;
+  }
   // background-color: red;
+    .submitted label.item.has-error {
+    border-bottom: 2px solid red;
+  }
+
+  label.item.has-error-lr {
+    border: 2px solid red;
+    // border-right: 2px solid red;
+  }
+
+  label.item.valid-lr {
+    border: 1px solid green;
+    // border-right: 2px solid green;
+  }
+
+  .form-errors {
+    margin: 5px 0
+  }
+
+  .form-error {
+    padding: 2px 0 2px 16px;
+    color: red;
+  }
 
   .inputTypes{
     margin-bottom: 1vh ;
     // border: 1px solid red;
   }
 
+.item-input{
+  margin-bottom: 1vh !important;
+}
 
 .input-dropdown {
     position: relative;
