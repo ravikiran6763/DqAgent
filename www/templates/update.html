@@ -1,0 +1,72 @@
+<!-- <ion-view title="Update" hide-nav-bar="true" hide-back-button="true" id="page6" class="update-view">
+
+</ion-view> -->
+<ion-modal-view >
+  <ion-header-bar class="bar bar-header bar-balanced">
+    <button class="button button-clear button-primary" style="float:right;" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding modalView">
+    <div class="card" style="background-color:red;">
+
+    <div class="list">
+      <label class="item item-input item-select"
+             ng-class="{ 'has-error-lr' : signinForm.video.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.video.$valid  && signinForm.$submitted}">
+        <span class="input-label">Video Demo</span>
+        <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+        <select name='video' ng-model="update.video" required>
+          <option value='1' selected>Yes</option>
+          <option value='2'>No</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select"
+             ng-class="{ 'has-error-lr' : signinForm.audio.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.audio.$valid  && signinForm.$submitted}">
+        <span class="input-label">Audio Demo</span>
+        <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+        <select name='audio' ng-model="update.audio" required>
+          <option value='1' selected>Yes</option>
+          <option value='2'>No</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select"
+             ng-class="{ 'has-error-lr' : signinForm.chat.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.chat.$valid  && signinForm.$submitted}">
+        <span class="input-label">Chat Demo</span>
+        <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+        <select name='chat' ng-model="update.chat" required>
+          <option value='1' selected>Yes</option>
+          <option value='2'>No</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select"
+             ng-class="{ 'has-error-lr' : signinForm.prescription.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.prescription.$valid  && signinForm.$submitted}">
+        <span class="input-label">Prescription Demo</span>
+        <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+        <select name='prescription' ng-model="update.prescription" required>
+          <option value='1' selected>Yes</option>
+          <option value='2'>No</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select"
+             ng-class="{ 'has-error-lr' : signinForm.account.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.account.$valid  && signinForm.$submitted}">
+        <span class="input-label">Accounts Demo</span>
+        <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+        <select name='account' ng-model="update.account" required>
+          <option value='1' selected>Yes</option>
+          <option value='2'>No</option>
+        </select>
+      </label>
+
+      <button class="button button-full button-calm" ng-click="updated(update)">Update</button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

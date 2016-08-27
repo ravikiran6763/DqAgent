@@ -21,7 +21,17 @@ AgentApp.constant('BASE_URL', {
         'doctorRegistration': 'dqagent/doctorRegistration.php',
 
         'ForgotPassword': 'common/forgotPassword.php',
-        'getMedicalSpecialist' : 'patient/listallspecialities.php'
+        'getMedicalSpecialist' : 'patient/listallspecialities.php',
+        'fetchDocList' : 'dqagent/fetchDocList.php',
+        'updateDoctor' : 'dqagent/updateDoctor.php',
+        'banklist' : 'dqagent/banklist.php',
+        'languageList' : 'dqagent/languageList.php',
+        'location' : 'dqagent/location.php'
+
+
+
+
+
 
 
 

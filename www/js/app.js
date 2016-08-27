@@ -6,7 +6,8 @@ var AgentApp=angular.module('starter', [
   'ui.multiselect',
   'ngStorage',
   'ngCordova',
-  'ngMask'
+  'ngMask',
+  'ionic-letter-avatar'
 ])
 
 AgentApp.config(function($stateProvider, $urlRouterProvider) {
@@ -48,6 +49,16 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
         'register-tab': {
           templateUrl: 'templates/register.html',
           controller: 'registerTabCtrl'
+        }
+      }
+    })
+
+    .state('tabs.updateDoctor', {
+      url: '/updateDoctor',
+      views: {
+        'updateDoctor-tab': {
+          templateUrl: 'templates/updateDoctor.html',
+          controller: 'updateTabCtrl'
         }
       }
     })

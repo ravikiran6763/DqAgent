@@ -9815,171 +9815,28 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.reg-view .submitted input.ng-invalid:not(:focus) {
-  border: 2px solid red; }
-
-.reg-view .submitted label.item.has-error {
-  border-bottom: 2px solid red; }
-
-.reg-view label.item.has-error-lr {
-  border: 2px solid red; }
-
-.reg-view label.item.valid-lr {
-  border: 1px solid green; }
-
-.reg-view .form-errors {
-  margin: 5px 0; }
-
-.reg-view .form-error {
-  padding: 2px 0 2px 16px;
-  color: red; }
-
-.reg-view .inputTypes {
-  margin-bottom: 1vh; }
-
-.reg-view .item-input {
-  margin-bottom: 1vh !important; }
-
-.reg-view .input-dropdown {
-  position: relative;
-  display: inline-block; }
-
-.reg-view .input-dropdown .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin-top: 2px;
-  background: #EEE;
-  z-index: 999; }
-
-.reg-view .input-dropdown .dropdown div {
-  cursor: pointer;
-  padding: 2px 5px; }
-
-.reg-view .input-dropdown input:focus + .dropdown {
-  display: block; }
-
-.reg-view .row {
-  margin-right: -15px;
-  margin-left: -0;
-  display: flex;
-  padding: 5px;
-  width: 100%;
-  height: 100px; }
-
-.reg-view .col {
-  display: block;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid black;
-  margin: 2px; }
-  .reg-view .col img {
-    width: 100%;
-    height: 75px; }
-
-.profile-view {
-  background-color: #e2e2e2 !important; }
-  .profile-view ::-webkit-input-placeholder {
-    color: red; }
-  .profile-view .imageContainer {
-    font-size: 3vw; }
-    .profile-view .imageContainer .profileImage {
-      width: 50%;
-      height: 50%;
-      margin: 0 auto; }
-    .profile-view .imageContainer img {
-      width: 100%;
-      margin: 0 auto;
-      border-radius: 50%;
-      border: 8px solid #e2e2e2; }
-  .profile-view .row {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    padding: 5px 0 6px 0; }
-  .profile-view .col {
-    margin: 4px 0 5px 10px; }
-  .profile-view a {
-    color: green;
-    margin: 0 0 0 41vw; }
-
 .tabs-top.tabs-striped .tab-item.tab-item-active {
   margin-top: 1px;
   border-width: 0px 0px 2px 0px !important;
-  border: 1px solid teal; }
+  border: 1px solid #ffffff; }
 
 .tab-item .icon {
   display: block;
   margin: 0 auto;
   height: 32px;
   font-size: 32px;
-  color: teal; }
+  color: #ffffff; }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
   top: 0;
-  color: teal; }
+  color: #ffffff;
+  background-color: #00735e !important; }
 
 .tabs-icon-top > .tabs .tab-item {
-  color: teal !important; }
+  color: #ffffff !important; }
 
 .tabs-top.tabs-striped .tab-item.tab-item-active {
-  color: teal !important; }
-
-.sigIn-view {
-  background: url(../img/hyj1RBBJQkS81GoEbyUM_background.png) no-repeat center;
-  background-size: cover; }
-  .sigIn-view .content {
-    margin-top: 15vh;
-    height: 100%; }
-  .sigIn-view ion-content {
-    width: 90% !important;
-    margin: 0 auto; }
-  .sigIn-view .logoContainer {
-    margin-top: 5vh; }
-    .sigIn-view .logoContainer .logo {
-      width: 80%;
-      height: 50%;
-      margin: 0 auto; }
-    .sigIn-view .logoContainer img {
-      width: 100%;
-      margin: 0 auto; }
-  .sigIn-view .loginData {
-    width: 90%;
-    margin: 0 auto; }
-  .sigIn-view .margin {
-    margin-top: 4vh; }
-  .sigIn-view .item-input {
-    margin-bottom: 2vh; }
-  .sigIn-view .button.button-positive {
-    border-color: transparent;
-    background-color: #6fa02d;
-    color: #fff;
-    width: 90%;
-    margin: 0 auto; }
-  .sigIn-view input[type="tel"] {
-    font-size: 4vw;
-    padding-left: 4vw;
-    padding-top: 2vh;
-    margin: 0 auto;
-    font-family: Ubuntu,bold,sans-serif !important;
-    height: 50px;
-    width: 100%; }
-  .sigIn-view input[type="password"] {
-    font-size: 4vw;
-    padding-top: 2vh;
-    padding-left: 4vw;
-    /* margin-top: 1vh; */
-    height: 50px;
-    font-family: Ubuntu,bold,sans-serif !important;
-    margin: 0 auto;
-    width: 100%; }
-  .sigIn-view .submitted input.ng-invalid:not(:focus) {
-    border: 2px solid red; }
-  .sigIn-view .profile-details {
-    background-color: red;
-    margin: 0 auto;
-    width: 80% !important; }
+  color: #ffffff !important; }
 
 .loginPopup .popup, .popup-showing active .popup {
   position: relative;
@@ -10024,3 +9881,216 @@ a.button {
   display: block;
   background-color: white;
   box-shadow: none; }
+
+.modal-backdrop-bg {
+  position: fixed;
+  top: 25vh;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 50%; }
+
+.button.button-positive {
+  border-color: transparent;
+  background-color: #006452 !important;
+  color: #fff; }
+
+.button.button-calm {
+  border-color: transparent;
+  background-color: #6e9f2c !important;
+  width: 90%;
+  margin: 0 auto;
+  color: #fff; }
+
+fancy-select .list {
+  margin: -1px 0; }
+
+/* Items */
+/* line 13, ../scss/modules/_fancy-select.scss */
+.fancy-select-items {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/* line 19, ../scss/modules/_fancy-select.scss */
+.fancy-select-items .item {
+  overflow: hidden;
+  /* Clearfix */ }
+
+/* line 24, ../scss/modules/_fancy-select.scss */
+.fancy-select-items label p {
+  height: 32px;
+  line-height: 32px; }
+
+/* line 29, ../scss/modules/_fancy-select.scss */
+.fancy-select-icon {
+  float: left;
+  margin-right: 10px;
+  width: 30px;
+  text-align: center; }
+
+.reg-view {
+  background-color: #e2e2e2 !important; }
+  .reg-view .submitted input.ng-invalid:not(:focus) {
+    border: 1px solid red; }
+  .reg-view .submitted label.item.has-error {
+    border-bottom: 1px solid red; }
+  .reg-view label.item.has-error-lr {
+    border: 1px solid red; }
+  .reg-view label.item.valid-lr {
+    border: 1px solid green; }
+  .reg-view .form-errors {
+    margin: 5px 0; }
+  .reg-view .form-error {
+    padding: 2px 0 2px 16px;
+    color: red; }
+  .reg-view .inputTypes {
+    margin-bottom: 1vh; }
+  .reg-view .item-input {
+    margin-bottom: 1vh !important; }
+  .reg-view .input-dropdown {
+    position: relative;
+    display: inline-block; }
+  .reg-view .input-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 2px;
+    background: #EEE;
+    z-index: 999; }
+  .reg-view .input-dropdown .dropdown div {
+    cursor: pointer;
+    padding: 2px 5px; }
+  .reg-view .input-dropdown input:focus + .dropdown {
+    display: block; }
+  .reg-view .row {
+    margin-right: -15px;
+    margin-left: -0;
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    height: 100px; }
+  .reg-view .col {
+    display: block;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 2px; }
+    .reg-view .col img {
+      width: 100%;
+      height: 75px; }
+
+.profile-view {
+  background-color: #e2e2e2 !important; }
+  .profile-view ::-webkit-input-placeholder {
+    color: red; }
+  .profile-view .imageContainer {
+    font-size: 3vw; }
+    .profile-view .imageContainer .profileImage {
+      width: 50%;
+      height: 50%;
+      margin: 0 auto; }
+    .profile-view .imageContainer img {
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 8px solid #e2e2e2; }
+  .profile-view .row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 5px 0 6px 0; }
+  .profile-view .col {
+    margin: 4px 0 5px 10px; }
+  .profile-view a {
+    color: green;
+    margin: 0 0 0 41vw; }
+
+.update-view {
+  background-color: #e2e2e2 !important; }
+  .update-view .item {
+    border-bottom: 1px #f8f8f8;
+    background-color: #e0dcdc;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 8px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px; }
+  .update-view .docName {
+    position: relative;
+    margin: -45px 0 2px 63px; }
+  .update-view .degrees {
+    position: relative;
+    margin: -3px 0 -2px 62px; }
+
+.sigIn-view {
+  background: url(../img/hyj1RBBJQkS81GoEbyUM_background.png) no-repeat center;
+  background-size: cover; }
+  .sigIn-view .content {
+    margin-top: 15vh;
+    height: 100%; }
+  .sigIn-view ion-content {
+    width: 90% !important;
+    margin: 0 auto; }
+  .sigIn-view .logoContainer {
+    margin-top: 5vh; }
+    .sigIn-view .logoContainer .logo {
+      width: 80%;
+      height: 50%;
+      margin: 0 auto; }
+    .sigIn-view .logoContainer img {
+      width: 100%;
+      margin: 0 auto; }
+  .sigIn-view .loginData {
+    width: 90%;
+    margin: 0 auto; }
+  .sigIn-view .margin {
+    margin-top: 4vh; }
+  .sigIn-view .item-input {
+    margin-bottom: 2vh; }
+  .sigIn-view .button.button-positive {
+    border-color: transparent;
+    background-color: #6fa02d;
+    color: #fff;
+    width: 90%;
+    margin: 0 auto; }
+  .sigIn-view .button.button-positive .activated {
+    border-color: transparent;
+    background-color: #6fa02d;
+    color: #fff;
+    width: 90%;
+    margin: 0 auto; }
+  .sigIn-view input[type="tel"] {
+    font-size: 4vw;
+    padding-left: 4vw;
+    padding-top: 2vh;
+    margin: 0 auto;
+    font-family: Ubuntu,bold,sans-serif !important;
+    height: 50px;
+    width: 100%; }
+  .sigIn-view input[type="password"] {
+    font-size: 4vw;
+    padding-top: 2vh;
+    padding-left: 4vw;
+    /* margin-top: 1vh; */
+    height: 50px;
+    font-family: Ubuntu,bold,sans-serif !important;
+    margin: 0 auto;
+    width: 100%; }
+  .sigIn-view .submitted input.ng-invalid:not(:focus) {
+    border: 2px solid red; }
+  .sigIn-view .profile-details {
+    background-color: red;
+    margin: 0 auto;
+    width: 80% !important; }
+
+.modalView {
+  background-color: #e2e2e2; }
+  .modalView .list {
+    background-color: #e2e2e2; }

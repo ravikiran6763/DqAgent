@@ -1,0 +1,25 @@
+.update-view{
+  background-color: #e2e2e2 !important;
+
+    .item {
+      border-bottom: 1px #f8f8f8;
+      background-color: #e0dcdc;
+      color: #444;
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin: -1px;
+      padding: 8px;
+      border-width: 1px;
+      border-style: solid;
+      font-size: 16px;
+  }
+  .docName{
+      position: relative;
+      margin: -45px 0 2px 63px;
+  }
+  .degrees{
+    position: relative;
+    margin: -3px 0 -2px 62px;
+  }
+}

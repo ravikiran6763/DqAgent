@@ -1,9 +1,11 @@
-AgentApp.controller('registerTabCtrl', function($scope, $ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
+AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
 console.log('regController');
   $scope.doctor={};
   // $rootScope.imgURI1='';
   // $rootScope.imgURI2='';
   // $rootScope.imgURI3='';
+
+  $scope.deviceAndroid = ionic.Platform.isAndroid();
 
   $scope.sendForm = function($event,form)
   {
@@ -19,14 +21,39 @@ console.log('regController');
     }
 
     $scope.range = range;
-
-  agentService.getMedicalSpecialist().then(function(response){
+/* get all the specialities*/
+    agentService.getMedicalSpecialist().then(function(response){
       console.log('successfull data', response);
       $scope.specialitiesList = response;
 
    }).catch(function(error){
        console.log('failure data', error);
    });
+/*to get bank names*/
+   agentService.bankNames().then(function(response){
+     console.log('successfull data', response);
+     $scope.bankList = response;
+
+  }).catch(function(error){
+      console.log('failure data', error);
+  });
+/*list of languages*/
+  agentService.languages().then(function(response){
+    console.log('successfull data', response);
+    $scope.languageList = response;
+
+ }).catch(function(error){
+     console.log('failure data', error);
+ });
+
+/*list of city and cityies*/
+ agentService.stateAndCity().then(function(response){
+   console.log('successfull data', response);
+   $scope.locationList = response;
+
+}).catch(function(error){
+    console.log('failure data', error);
+});
 
 $scope.registerDoc=function(isFormValid){
 
@@ -63,28 +90,42 @@ $scope.registerDoc=function(isFormValid){
               image3:$rootScope.imgURI3
             };
 
-              agentService.registerDoc(docRegDetails).then(function(response){
-              console.log('successfull data', response);
-              $scope.registeredDoc = response;
-              console.log($scope.registeredDoc);
-              if($scope.registeredDoc){
-                $ionicLoading.show({
-                      template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
-                    });
+            if($scope.doctor.fname || $scope.doctor.mname && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
+              $scope.doctor.degrees && $scope.doctor.since && $scope.doctor.age && $scope.doctor.sex &&
+              $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 || $scope.doctor.address2 && $scope.doctor.pin &&
+              $scope.doctor.language1 && $scope.doctor.bankName && $scope.doctor.accNum && $scope.doctor.ifsc &&
+              $scope.doctor.fee && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
+              )
+              {
+                if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
-                    $timeout(function () {
-                      console.log('timeout');
-                     $ionicLoading.hide();
-                   }, 8000);
-                 $window.location.reload();
-                //  $scope.doctor={};
-              }
+                                agentService.registerDoc(docRegDetails).then(function(response){
+                                console.log('successfull data', response);
+                                $scope.registeredDoc = response;
+                                console.log($scope.registeredDoc);
+                                if($scope.registeredDoc){
+                                    $ionicLoading.show({
+                                        template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
+                                      });
 
+                                      $timeout(function (){
+                                        // alert('hello');
+                                        $window.location.reload();
 
+                                       $ionicLoading.hide();
+                                     }, 8000);
+                                }
+                             }).catch(function(error){
+                                 console.log('failure data', error);
+                             });
 
-           }).catch(function(error){
-               console.log('failure data', error);
-           });
+                }
+                else{
+                  alert('kuidly take images')
+                }
+
+            }
+
 
 
   }
@@ -141,7 +182,7 @@ $scope.registerDoc=function(isFormValid){
 
          $cordovaCamera.getPicture(options).then(function (imageData) {
              $rootScope.imgURI2 = "data:image/jpeg;base64," + imageData;
-   alert($rootScope.imgURI2);
+  //  alert($rootScope.imgURI2);
              var imageUploadData ={
                image:$rootScope.imgURI2,
                patientPhone:$rootScope.patient
@@ -178,7 +219,6 @@ $scope.registerDoc=function(isFormValid){
          });
      };
 
-// $ionicLoading.hide();
 
 
 });

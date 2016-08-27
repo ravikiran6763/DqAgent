@@ -1,9 +1,9 @@
 <ion-view title="Doctor Registration Form" hide-nav-bar="true" hide-back-button="true" id="page6" class="reg-view">
-    <ion-content padding="true" style="background: url(img/hyj1RBBJQkS81GoEbyUM_background.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+    <ion-content padding="true"  class="manual-ios-statusbar-padding">
 
-      <form name="signinForm" novalidate ng-submit="registerDoc(signinForm)" >
+      <form name="signinForm" novalidate ng-submit="registerDoc($event)" >
 
-              <div class="list">
+              <div class="list" scroll="true">
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fname.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fname.$valid  && signinForm.$submitted}">
                   <span class="input-label">First Name</span>
@@ -55,7 +55,6 @@
                   <select name='sex' ng-model="doctor.sex" required>
                     <option value='Male' selected>Male</option>
                     <option value='Female'>Female</option>
-                    <option value='None'>None</option>
                   </select>
                 </label>
 
@@ -76,10 +75,7 @@
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
                   <select name='city' ng-model="doctor.city" required>
-                    <option selected value='Bengaluru'>Bengaluru</option>
-                    <option value='Mumbai'>Mumbai</option>
-                    <option value='Delhi'>Delhi</option>
-                    <option value='Chennai'>Chennai</option>
+                    <option ng-repeat="loc in locationList" value={{loc.city_name}}>{{loc.city_name}}</option>
                   </select>
                 </label>
 
@@ -114,13 +110,8 @@
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
                   <select name='language1' ng-model="doctor.language1" required>
-                    <option selected value='Kannada'>Kannada</option>
-                    <option value='English'>English</option>
-                    <option value='Hindi'>Hindi</option>
-                    <option value='Malayalam'>Malayalam</option>
-                    <option value='Marathi'>Marathi</option>
-                    <option value='Telugu'>Telugu</option>
-                    <option value='Tamil'>Tamil</option>
+                    <option ng-repeat="lang in languageList" value={{lang.language}}>{{lang.language}}</option>
+
                   </select>
                 </label>
 
@@ -130,13 +121,7 @@
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
                   <select name='language2' ng-model="doctor.language2" required>
-                    <option selected value='Kannada'>Kannada</option>
-                    <option value='English'>English</option>
-                    <option value='Hindi'>Hindi</option>
-                    <option value='Malayalam'>Malayalam</option>
-                    <option value='Marathi'>Marathi</option>
-                    <option value='Telugu'>Telugu</option>
-                    <option value='Tamil'>Tamil</option>
+                    <option ng-repeat="lang in languageList" value={{lang.language}}>{{lang.language}}</option>
                   </select>
                 </label>
 
@@ -146,11 +131,18 @@
                   <input type="number" name="mobile"  ng-model="doctor.mobile" mask-clean='true' mask='9999999999' restrict="reject" clean="true" required>
                 </label>
 
-                <label class="item item-input"
+
+                <label class="item item-input item-select"
                        ng-class="{ 'has-error-lr' : signinForm.bankName.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.bankName.$valid  && signinForm.$submitted}">
                   <span class="input-label">Bank Name</span>
-                  <input type="text" name="bankName"  ng-model="doctor.bankName" required>
+                  <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+                  <select name='Bank Name' ng-model="doctor.bankName" required>
+                    <option ng-repeat="bank in bankList" value={{bank.bankName}}>{{bank.bankName}}</option>
+                  </select>
                 </label>
+
+
 
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.accNum.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.accNum.$valid  && signinForm.$submitted}">
@@ -197,7 +189,7 @@
                   <input type="number" name="mciNum"  ng-model="doctor.mciNum" required>
                 </label>
 
-                <div class="card">
+                <div class="card" required>
                   <div class="item item-divider">
                   Doctor Images
                   </div>
@@ -234,4 +226,5 @@
 
             </form>
     </ion-content>
+
 </ion-view>

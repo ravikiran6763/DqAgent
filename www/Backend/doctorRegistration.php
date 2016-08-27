@@ -2,7 +2,7 @@
 
 	require 'headers.php';
 	header('Content-type: text/html; charset=utf-8');
-	echo $postdata = file_get_contents("php://input");
+	 $postdata = file_get_contents("php://input");
 
 
 
@@ -76,9 +76,9 @@
 			if(mysql_error())
 			// if(!$retval)
 			{
-				// die('Could not enter data: ' . mysql_error());
+				die('Could not enter data: ' . mysql_error());
 
-				 echo "ERROR";
+				//  echo "ERROR";
 			}
 			else
 			{
@@ -87,6 +87,9 @@
 
 					$sql1 = "INSERT INTO doctorImages (docPhone,docImage1,docImage2,docImage3) values ('$doctorPhone','$docImg1','$docImg2','$docImg3')";
 					$retval1 = mysql_query( $sql1, $dbhandle );
+
+					$sql2 = "INSERT INTO demonstration (docPhone,regBy) values('$doctorPhone','$registerdBy') ";
+					$retval2 = mysql_query( $sql2, $dbhandle );
 
 				 //PASSWORD FOR DOCTOR TO LOGIN INTO VSEE
                 //                 $password = "DQ_doctor";
@@ -107,6 +110,22 @@
                 // echo $result;
                 // $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 // echo $http_status;
+
+								$ch = curl_init('https://www.txtguru.in/imobile/api.php?');
+				        curl_setopt($ch, CURLOPT_POST, 1);
+				        curl_setopt($ch, CURLOPT_POSTFIELDS, "username=tallysolutions&password=49332602&source=TALLYS&dmobile=91".$doctorPhone."&message=Hello!!+Dr.+$doctorFname+$doctorLname+Thank+you+for+registering+with+DoctorQuick+please+download+our+app+from+ http://bit.ly/2bkejcc +Team+DQ");
+				        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+				        $data = curl_exec($ch);
+
+								sleep(180);
+
+								$pass = curl_init('https://www.txtguru.in/imobile/api.php?');
+				        curl_setopt($pass, CURLOPT_POST, 1);
+				        curl_setopt($pass, CURLOPT_POSTFIELDS, "username=tallysolutions&password=49332602&source=TALLYS&dmobile=91".$doctorPhone."&message=Hello!!+Dr.+$doctorFname+$doctorLname+your+password+for+logging+in+to+DoctorQuick+is+$docPwd+.Please+do+not+share+your+password+with+anyone.+Team+DQ");
+				        curl_setopt($pass, CURLOPT_RETURNTRANSFER,1);
+				        $data = curl_exec($pass);
+
+
 		            }
 	}
 	mysql_close($dbhandle);

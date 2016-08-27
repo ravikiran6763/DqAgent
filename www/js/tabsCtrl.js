@@ -26,5 +26,25 @@ AgentApp.controller('tabsCtrl', function($scope,$ionicLoading, $localStorage, $r
     $state.go('tabs.register');
   }
 
+  $scope.updateTab=function(){
+    console.log('clickd');
+    $ionicLoading.show({
+          template: '<p>Loading Form...</p><ion-spinner></ion-spinner>'
+        });
+
+        $timeout(function () {
+          console.log('timeout');
+         $ionicLoading.hide();
+       }, 5000);
+       agentService.fetchDocs($localStorage.user).then(function(response){
+       console.log('successfull data', response);
+       $scope.docList = response;
+       console.log($scope.docList);
+       $state.go('tabs.updateDoctor');
+       }).catch(function(error){
+        console.log('failure data', error);
+       });
+  }
+
 
 });

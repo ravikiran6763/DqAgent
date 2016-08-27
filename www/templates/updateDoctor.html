@@ -1,0 +1,21 @@
+<ion-view title="Doctors" hide-nav-bar="true" hide-back-button="true" id="page6" class="update-view">
+    <ion-content padding="true" class="manual-ios-statusbar-padding">
+
+      <ion-list ng-repeat="doc in docList">
+        <ion-item ng-click="modal.show(); updateDoc({{doc.doctorPhone}});">
+          <ionic-letter-avatar data="{{doc.doctorfname}}" shape="round"></ionic-letter-avatar>
+          <p class="docName">Dr.{{doc.doctorfname}} {{doc.doctormname}} {{doc.doctorlname}}</p>
+
+          <p class="degrees">{{doc.doctorDegrees}}</p>
+          <!-- <p ng-show="docList.length == 0" style="margin-top: 8vh;"><center><b style="color:#417611;">No Requests Pending</b></center></p> -->
+
+        </ion-item>
+
+
+
+
+
+      </ion-list>
+
+    </ion-content>
+</ion-view>
