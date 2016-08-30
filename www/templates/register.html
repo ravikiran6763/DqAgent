@@ -184,11 +184,11 @@
 <!--
                           <searchable-multiselect ng-repeat="sp in specialitiesList" display-attr="name"  selected-items="user.languages" all-items="sp.special"   add-item="addLanguageToUser(item,user)" remove-item="removeLanguageFromUser(item,user)" >
                           </searchable-multiselect> -->
-                          <select multiple ng-model='doctor.speciality'
+                          <select multiple required ng-model='doctor.speciality'
                                              ng-options="a.special for a in specialitiesList" >
                               </select>
 
-                  <!-- <select name="speciality" ng-model="doctor.speciality" required style="width:100%;"  >
+                  <!-- <select name="speciality" ng-model="doctor.speciality"  style="width:100%;"  >
                     <option ng-repeat="sp in specialitiesList" value={{sp.id}} >{{sp.special}}</option>
                   </select> -->
                 </label>

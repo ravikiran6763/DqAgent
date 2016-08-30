@@ -81,4 +81,20 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
 
  })
 
+ .run(function($ionicPlatform, $state){
+      $ionicPlatform.registerBackButtonAction(function (event) {
+        if ( ($state.$current.name=="tabs.home")
+            ){
+                // H/W BACK button is disabled for these states (these views)
+                // Do not go to the previous state (or view) for these states.
+                // Do nothing here to disable H/W back button.
+                navigator.app.exitApp();
+            } else {
+                // For all other states, the H/W BACK button is enabled
+                navigator.app.backHistory();
+            }
+        }, 100);
+
+})
+
 ;
