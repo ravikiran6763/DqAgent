@@ -1,9 +1,17 @@
 AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
 console.log('regController');
   $scope.doctor={};
-  // $rootScope.imgURI1='';
-  // $rootScope.imgURI2='';
-  // $rootScope.imgURI3='';
+  // console.log($scope.gPlace);
+
+  $scope.disableTap = function() {
+          var container = document.getElementsByClassName('pac-container');
+          angular.element(container).attr('data-tap-disabled', 'true');
+          var backdrop = document.getElementsByClassName('backdrop');
+          angular.element(backdrop).attr('data-tap-disabled', 'true');
+          angular.element(container).on("click", function() {
+              document.getElementById('pac-input').blur();
+          });
+      };
 
   $scope.deviceAndroid = ionic.Platform.isAndroid();
 
@@ -14,7 +22,6 @@ console.log('regController');
 
   };
 
-
     var range = [];
     for(var i=1980;i<2016;i++) {
     range.push(i);
@@ -23,7 +30,7 @@ console.log('regController');
     $scope.range = range;
 /* get all the specialities*/
     agentService.getMedicalSpecialist().then(function(response){
-      console.log('successfull data', response);
+      // console.log('successfull data', response);
       $scope.specialitiesList = response;
 
    }).catch(function(error){
@@ -31,7 +38,7 @@ console.log('regController');
    });
 /*to get bank names*/
    agentService.bankNames().then(function(response){
-     console.log('successfull data', response);
+    //  console.log('successfull data', response);
      $scope.bankList = response;
 
   }).catch(function(error){
@@ -39,7 +46,7 @@ console.log('regController');
   });
 /*list of languages*/
   agentService.languages().then(function(response){
-    console.log('successfull data', response);
+    // console.log('successfull data', response);
     $scope.languageList = response;
 
  }).catch(function(error){
@@ -48,7 +55,7 @@ console.log('regController');
 
 /*list of city and cityies*/
  agentService.stateAndCity().then(function(response){
-   console.log('successfull data', response);
+  //  console.log('successfull data', response);
    $scope.locationList = response;
 
 }).catch(function(error){
@@ -121,7 +128,7 @@ $scope.registerDoc=function(isFormValid){
 
                 }
                 else{
-                  alert('kuidly take images')
+                  alert('kuidly click doctor images')
                 }
 
             }
@@ -218,7 +225,38 @@ $scope.registerDoc=function(isFormValid){
              // An error occured. Show a message to the user
          });
      };
+////////////////////////////////////////////////////////////////////////////////
+$scope.allLanguages = [
+  {name: 'Arabic'},
+  {name: 'English'},
+  {name: 'French'},
+  {name: 'German'},
+  {name: 'Hindi'},
+  {name: 'Japanese'},
+  {name: 'Korean'},
+  {name: 'Mandarin'},
+  {name: 'Portuguese'},
+  {name: 'Russian'},
+  {name: 'Spanish'},
+  {name: 'Urdu'}
+  ];
+$scope.user1 = {
+  id: 1,
+  name: 'Foo Bar',
+  languages: [
+    {name: 'English'},
+    {name: 'Spanish'}
+  ]
+};
 
+$scope.addLanguageToUser = function (language, user1) {
+  $scope.user1.languages.push(language)
+};
+
+$scope.removeLanguageFromUser = function (language, user1) {
+  var idx = $scope.user1.languages.indexOf(language);
+  $scope.user1.languages.splice(idx,1);
+};
 
 
 });

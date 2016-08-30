@@ -3,11 +3,12 @@ var AgentApp=angular.module('starter', [
   'ionic',
   'starter.services',
   'starter.directives',
-  'ui.multiselect',
   'ngStorage',
   'ngCordova',
   'ngMask',
-  'ionic-letter-avatar'
+  'ionic-letter-avatar',
+  'ui.bootstrap',
+  'ion-google-place'
 ])
 
 AgentApp.config(function($stateProvider, $urlRouterProvider) {
@@ -69,5 +70,16 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
    $urlRouterProvider.otherwise('/sign-in');
 
 })
+
+
+.config(function($sceDelegateProvider) {
+   $sceDelegateProvider.resourceUrlWhitelist([
+     'self',
+     'http://*./**',
+     'https://rawgit.com/**',
+     'http://rawgit.com/**'
+   ]);
+
+ })
 
 ;

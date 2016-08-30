@@ -1,9 +1,20 @@
 <ion-view title="Doctor Registration Form" hide-nav-bar="true" hide-back-button="true" id="page6" class="reg-view">
+
+
     <ion-content padding="true"  class="manual-ios-statusbar-padding">
 
-      <form name="signinForm" novalidate ng-submit="registerDoc($event)" >
 
-              <div class="list" scroll="true">
+      <form name="signinForm" novalidate ng-submit="registerDoc($event)" >
+        <!-- <searchable-multiselect display-attr="name"  selected-items="user1.languages" all-items="allLanguages"   add-item="addLanguageToUser(item,user1)" remove-item="removeLanguageFromUser(item,user1)" >
+        </searchable-multiselect> -->
+          <!-- <ion-google-place placeholder="City" ng-model="data.address" required name="address" location-changed="locationChanged"/> -->
+
+          <!-- <label class="item item-input">
+            <input type="text" googleplace placeholder="Enter your city" ng-model="doctor.add"  class="ng-pristine ng-valid" autocomplete="off" ng-change='disableTap();'>
+          </label> -->
+
+
+            <div class="list" scroll="true">
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fname.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fname.$valid  && signinForm.$submitted}">
                   <span class="input-label">First Name</span>
@@ -69,14 +80,17 @@
                   </select>
                 </label>
 
-                <label class="item item-input item-select"
+                <label class="item item-input "
                        ng-class="{ 'has-error-lr' : signinForm.city.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.city.$valid  && signinForm.$submitted}">
                   <span class="input-label">City</span>
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
-                  <select name='city' ng-model="doctor.city" required>
-                    <option ng-repeat="loc in locationList" value={{loc.city_name}}>{{loc.city_name}}</option>
-                  </select>
+                  <input type="text" googleplace placeholder="" ng-model="doctor.city"  class="ng-pristine ng-valid" autocomplete="off" ng-change='disableTap();' required><!-- googleplace -->
+
+
+                  <!-- <select name='city' ng-model="doctor.city" required>
+                    <option  ng-repeat="loc in locationList" value={{loc.city_name}}>{{loc.city_name}}</option>
+                  </select> -->
                 </label>
 
                 <label class="item item-input"
@@ -166,6 +180,11 @@
                        ng-class="{ 'has-error-lr' : signinForm.speciality.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.speciality.$valid  && signinForm.$submitted}">
                   <span class="input-label">Speciality</span>
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
+
+<!--
+                          <searchable-multiselect ng-repeat="sp in specialitiesList" display-attr="name"  selected-items="user.languages" all-items="sp.special"   add-item="addLanguageToUser(item,user)" remove-item="removeLanguageFromUser(item,user)" >
+                          </searchable-multiselect> -->
+
 
                   <select name="speciality" ng-model="doctor.speciality" required style="width:100%;">
                     <option ng-repeat="sp in specialitiesList" value={{sp.id}}>{{sp.special}}</option>
