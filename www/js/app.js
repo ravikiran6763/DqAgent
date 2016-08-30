@@ -7,7 +7,6 @@ var AgentApp=angular.module('starter', [
   'ngCordova',
   'ngMask',
   'ionic-letter-avatar',
-  'ui.bootstrap',
   'ion-google-place'
 ])
 

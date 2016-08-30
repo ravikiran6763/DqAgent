@@ -30,12 +30,13 @@ console.log('regController');
     $scope.range = range;
 /* get all the specialities*/
     agentService.getMedicalSpecialist().then(function(response){
-      // console.log('successfull data', response);
+      console.log('successfull data', response);
       $scope.specialitiesList = response;
 
    }).catch(function(error){
        console.log('failure data', error);
    });
+
 /*to get bank names*/
    agentService.bankNames().then(function(response){
     //  console.log('successfull data', response);
@@ -44,6 +45,7 @@ console.log('regController');
   }).catch(function(error){
       console.log('failure data', error);
   });
+
 /*list of languages*/
   agentService.languages().then(function(response){
     // console.log('successfull data', response);
@@ -53,15 +55,7 @@ console.log('regController');
      console.log('failure data', error);
  });
 
-/*list of city and cityies*/
- agentService.stateAndCity().then(function(response){
-  //  console.log('successfull data', response);
-   $scope.locationList = response;
-
-}).catch(function(error){
-    console.log('failure data', error);
-});
-
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 $scope.registerDoc=function(isFormValid){
 
   if(isFormValid) {
