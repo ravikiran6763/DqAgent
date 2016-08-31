@@ -90,7 +90,7 @@ $scope.registerDoc=function(isFormValid){
               image2:$rootScope.imgURI2,
               image3:$rootScope.imgURI3
             };
-
+            console.log($scope.doctor.speciality);
             if($scope.doctor.fname || $scope.doctor.mname && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
               $scope.doctor.degrees && $scope.doctor.since && $scope.doctor.age && $scope.doctor.sex &&
               $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 || $scope.doctor.address2 && $scope.doctor.pin &&
@@ -98,32 +98,33 @@ $scope.registerDoc=function(isFormValid){
               $scope.doctor.fee && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
               )
               {
-                if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
+                // if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
                                 agentService.registerDoc(docRegDetails).then(function(response){
+
                                 console.log('successfull data', response);
                                 $scope.registeredDoc = response;
                                 console.log($scope.registeredDoc);
                                 if($scope.registeredDoc){
-                                    $ionicLoading.show({
-                                        template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
-                                      });
-
+                                  $ionicLoading.show({
+                                      template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
+                                    });
                                       $timeout(function (){
                                         // alert('hello');
                                         $window.location.reload();
 
-                                       $ionicLoading.hide();
-                                     }, 8000);
+                                     }, 3000);
+                                     $ionicLoading.hide();
+                                     
                                 }
                              }).catch(function(error){
                                  console.log('failure data', error);
                              });
 
-                }
-                else{
-                  alert('kuidly click doctor images')
-                }
+                // }
+                // else{
+                //   alert('kuidly click doctor images')
+                // }
 
             }
 

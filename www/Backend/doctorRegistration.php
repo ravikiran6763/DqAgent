@@ -49,6 +49,10 @@
     $doctorIfsc = $doctorDetails->ifsc;
     $doctorFee = $doctorDetails->fee;
     $doctorSpeciality = $doctorDetails->speciality;
+
+		$string_array = serialize($doctorSpeciality);
+		$special=implode(",",$doctorSpeciality);
+// echo $string_array;
     $doctorMciReg = $doctorDetails->mciReg;
     $doctorMciRegNum=$doctorDetails->mciNum;
 		$registerdBy=$doctorDetails->regBy;
@@ -65,13 +69,13 @@
 		$prefix = "DQ";
 		$sufix = $letters[rand(0, 51)];
 		// $middle=$specialChar[rand(0,12)];
-		$docPwd = $prefix. $middle . $numbers . $sufix ;
+		$docPwd = $prefix. $middle . $numbers  ;
 
 			$docPwd = base64_encode($docPwd);
 
 			// echo $retval;
 
-		 $sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$doctorSpeciality','$doctorMciReg','$doctorMciRegNum','$registerdBy')";
+		 $sql = "INSERT INTO doctorDetails (doctorFname,doctorMname,doctorLname,doctorEmail,doctorPhone,doctorPwd,doctorDegrees,practicingSince,doctorAge,doctorSex,doctorCountry,doctorCity,doctorAddress1,doctorAddress2,doctorPincode,doctorLanguage1,doctorLanguage2,doctorBankName,doctorAccountNum,doctorBankIfsc,doctorFee,doctorSpecialityId,doctorMedFlag,doctorMedNum,registeredBy) VALUES ('$doctorFname','$doctorMname','$doctorLname','$doctorEmail','$doctorPhone','$docPwd','$doctorDegrees','$doctorSince','$doctorAge','$doctorSex','$doctorCountry','$doctorCity','$doctorAddress1','$doctorAddress2','$doctorPin','$doctorLanguage1','$doctorLanguage2','$doctorBankName','$doctorAccNum','$doctorIfsc','$doctorFee','$special','$doctorMciReg','$doctorMciRegNum','$registerdBy')";
 			$retval = mysql_query( $sql, $dbhandle );
 			if(mysql_error())
 			// if(!$retval)
@@ -90,6 +94,9 @@
 
 					$sql2 = "INSERT INTO demonstration (docPhone,regBy) values('$doctorPhone','$registerdBy') ";
 					$retval2 = mysql_query( $sql2, $dbhandle );
+
+					$sql3 = "INSERT INTO doctor_onoff (doctor_phno,onoff) values('$doctorPhone','2') ";
+					$retval3 = mysql_query( $sql3, $dbhandle );
 
 				 //PASSWORD FOR DOCTOR TO LOGIN INTO VSEE
                 //                 $password = "DQ_doctor";
@@ -118,10 +125,10 @@
 				        $data = curl_exec($ch);
 
 								sleep(180);
-
+								$password=base64_decode($docPwd);
 								$pass = curl_init('https://www.txtguru.in/imobile/api.php?');
 				        curl_setopt($pass, CURLOPT_POST, 1);
-				        curl_setopt($pass, CURLOPT_POSTFIELDS, "username=tallysolutions&password=49332602&source=TALLYS&dmobile=91".$doctorPhone."&message=Hello!!+Dr.+$doctorFname+$doctorLname+your+password+for+logging+in+to+DoctorQuick+is+$docPwd+.Please+do+not+share+your+password+with+anyone.+Team+DQ");
+				        curl_setopt($pass, CURLOPT_POSTFIELDS, "username=tallysolutions&password=49332602&source=TALLYS&dmobile=91".$doctorPhone."&message=Hello!!+Dr.+$doctorFname+$doctorLname+your+password+for+logging+in+to+DoctorQuick+is+$password+.Please+do+not+share+your+password+with+anyone.+Team+DQ");
 				        curl_setopt($pass, CURLOPT_RETURNTRANSFER,1);
 				        $data = curl_exec($pass);
 

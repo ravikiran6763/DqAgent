@@ -179,18 +179,16 @@
                 <label class="item item-input item-select"
                        ng-class="{ 'has-error-lr' : signinForm.speciality.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.speciality.$valid  && signinForm.$submitted}">
                   <span class="input-label">Speciality</span>
-                  <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
-<!--
-                          <searchable-multiselect ng-repeat="sp in specialitiesList" display-attr="name"  selected-items="user.languages" all-items="sp.special"   add-item="addLanguageToUser(item,user)" remove-item="removeLanguageFromUser(item,user)" >
-                          </searchable-multiselect> -->
-                          <select multiple required ng-model='doctor.speciality'
-                                             ng-options="a.special for a in specialitiesList" >
-                              </select>
+                  <select name="multipleSelect" id="multipleSelect" ng-model="doctor.speciality" multiple>
+                        <option ng-repeat="sp in specialitiesList" value="{{sp.special}}">{{sp.special}}</option>
+                  </select>
 
-                  <!-- <select name="speciality" ng-model="doctor.speciality"  style="width:100%;"  >
-                    <option ng-repeat="sp in specialitiesList" value={{sp.id}} >{{sp.special}}</option>
-                  </select> -->
+
+                          <!-- <select multiple required ng-model='doctor.speciality'
+                                            ng-options="a.special for a in specialitiesList" >
+                              </select> -->
+
                 </label>
 
                 <label class="item item-input item-select"
