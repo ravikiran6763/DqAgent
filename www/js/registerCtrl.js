@@ -98,7 +98,7 @@ $scope.registerDoc=function(isFormValid){
               $scope.doctor.fee && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
               )
               {
-                // if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
+                if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
                                 agentService.registerDoc(docRegDetails).then(function(response){
 
@@ -115,16 +115,16 @@ $scope.registerDoc=function(isFormValid){
 
                                      }, 3000);
                                      $ionicLoading.hide();
-                                     
+
                                 }
                              }).catch(function(error){
                                  console.log('failure data', error);
                              });
 
-                // }
-                // else{
-                //   alert('kuidly click doctor images')
-                // }
+                }
+                else{
+                  alert('kuidly click doctor images')
+                }
 
             }
 
@@ -221,28 +221,7 @@ $scope.registerDoc=function(isFormValid){
          });
      };
 ////////////////////////////////////////////////////////////////////////////////
-$scope.allLanguages = [
-  {name: 'Arabic'},
-  {name: 'English'},
-  {name: 'French'},
-  {name: 'German'},
-  {name: 'Hindi'},
-  {name: 'Japanese'},
-  {name: 'Korean'},
-  {name: 'Mandarin'},
-  {name: 'Portuguese'},
-  {name: 'Russian'},
-  {name: 'Spanish'},
-  {name: 'Urdu'}
-  ];
-$scope.user1 = {
-  id: 1,
-  name: 'Foo Bar',
-  languages: [
-    {name: 'English'},
-    {name: 'Spanish'}
-  ]
-};
+
 
 $scope.addLanguageToUser = function (language, user1) {
   $scope.user1.languages.push(language)
