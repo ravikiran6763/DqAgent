@@ -5,15 +5,10 @@
 
 
       <form name="signinForm" novalidate ng-submit="registerDoc($event)" >
-        <!-- <searchable-multiselect display-attr="name"  selected-items="user1.languages" all-items="allLanguages"   add-item="addLanguageToUser(item,user1)" remove-item="removeLanguageFromUser(item,user1)" >
-        </searchable-multiselect> -->
-          <!-- <ion-google-place placeholder="City" ng-model="data.address" required name="address" location-changed="locationChanged"/> -->
+      <!-- <ion-item>
 
-          <!-- <label class="item item-input">
-            <input type="text" googleplace placeholder="Enter your city" ng-model="doctor.add"  class="ng-pristine ng-valid" autocomplete="off" ng-change='disableTap();'>
-          </label> -->
-
-
+        <ion-toggle >on</ion-toggle>
+      </ion-item> -->
             <div class="list" scroll="true">
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fname.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fname.$valid  && signinForm.$submitted}">

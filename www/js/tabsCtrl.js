@@ -29,13 +29,13 @@ AgentApp.controller('tabsCtrl', function($scope,$ionicLoading, $localStorage, $r
   $scope.updateTab=function(){
     console.log('clickd');
     $ionicLoading.show({
-          template: '<p>Loading Form...</p><ion-spinner></ion-spinner>'
+          template: '<p>Fetching Doctors List...</p><ion-spinner></ion-spinner>'
         });
 
         $timeout(function () {
           console.log('timeout');
          $ionicLoading.hide();
-       }, 5000);
+       }, 2000);
        agentService.fetchDocs($localStorage.user).then(function(response){
        console.log('successfull data', response);
        $scope.docList = response;

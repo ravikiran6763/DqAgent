@@ -21,13 +21,16 @@ console.log('regController');
        $scope.submitted = true;
 
   };
+var currentTime = new Date();
+var year = currentTime.getFullYear() ;
 
     var range = [];
-    for(var i=1980;i<2016;i++) {
+    for(var i=1980; i<= year; i++) {
     range.push(i);
     }
 
     $scope.range = range;
+
 /* get all the specialities*/
     agentService.getMedicalSpecialist().then(function(response){
       console.log('successfull data', response);
@@ -101,7 +104,6 @@ $scope.registerDoc=function(isFormValid){
                 if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
                                 agentService.registerDoc(docRegDetails).then(function(response){
-
                                 console.log('successfull data', response);
                                 $scope.registeredDoc = response;
                                 console.log($scope.registeredDoc);
@@ -112,10 +114,8 @@ $scope.registerDoc=function(isFormValid){
                                       $timeout(function (){
                                         // alert('hello');
                                         $window.location.reload();
-
                                      }, 3000);
                                      $ionicLoading.hide();
-
                                 }
                              }).catch(function(error){
                                  console.log('failure data', error);
