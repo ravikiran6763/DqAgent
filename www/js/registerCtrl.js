@@ -103,7 +103,7 @@ $scope.registerDoc=function(isFormValid){
               {
                 if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
-                                agentService.registerDoc(docRegDetails).then(function(response){
+                                agentService.registerDoctor(docRegDetails).then(function(response){
                                 console.log('successfull data', response);
                                 $scope.registeredDoc = response;
                                 console.log($scope.registeredDoc);
