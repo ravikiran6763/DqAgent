@@ -2,7 +2,7 @@ AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLo
 console.log('regController');
   $scope.doctor={};
   // console.log($scope.gPlace);
-
+$scope.fee=200;
   $scope.disableTap = function() {
           var container = document.getElementsByClassName('pac-container');
           angular.element(container).attr('data-tap-disabled', 'true');
@@ -126,6 +126,11 @@ $scope.registerDoc=function(isFormValid){
                   alert('kuidly click doctor images')
                 }
 
+            }
+            else {
+              if(!$scope.doctor.fee){
+                alert('please enter fee')
+              }
             }
 
 

@@ -71,7 +71,7 @@
 
                   <select name='country' ng-model="doctor.country" required>
                     <option value='India' selected>India</option>
-                    <option value='US'>US</option>
+
                   </select>
                 </label>
 
@@ -168,8 +168,11 @@
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fee.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fee.$valid  && signinForm.$submitted}">
                   <span class="input-label">Fee</span>
-                  <input type="number" name="fee"  ng-model="doctor.fee" required>
+                  <input type="text" ng-readonly='true' value="200"  ng-model="doctor.fee" />
+
+                  <!-- <input type="number" name="fee"  ng-model="doctor.fee" placeholder="200"  ng-value="200" required> -->
                 </label>
+
 
                 <label class="item item-input item-select"
                        ng-class="{ 'has-error-lr' : signinForm.speciality.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.speciality.$valid  && signinForm.$submitted}">
