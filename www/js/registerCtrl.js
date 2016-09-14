@@ -165,20 +165,7 @@ $scope.registerDoc=function(isFormValid){
                 });
               }
 
-              else if(!$scope.doctor.email){
-                $cordovaToast.showLongCenter('Enter a valid email', 'short', 'center').then(function(success) {
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-              else if(!$scope.doctor.mobile){
-                $cordovaToast.showLongCenter('Enter a valid Mobile Number', 'short', 'center').then(function(success) {
-                // success
-                }, function (error) {
-                // error
-                });
-              }
+
 
               else if(!$scope.doctor.sex){
                 $cordovaToast.showLongCenter('Enter Doctor gender', 'short', 'center').then(function(success) {
@@ -215,6 +202,13 @@ $scope.registerDoc=function(isFormValid){
                 // error
                 });
               }
+              else if(!$scope.doctor.email){
+                $cordovaToast.showLongCenter('Enter a valid email', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
               else if(!$scope.doctor.language1){
                 $cordovaToast.showLongCenter('select atleast one language', 'short', 'center').then(function(success){
                 // success
@@ -222,6 +216,14 @@ $scope.registerDoc=function(isFormValid){
                 // error
                 });
               }
+              else if(!$scope.doctor.mobile){
+                $cordovaToast.showLongCenter('Enter a valid Mobile Number', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+
               else if(!$scope.doctor.bankName){
                 $cordovaToast.showLongCenter('select bank', 'short', 'center').then(function(success){
                 // success

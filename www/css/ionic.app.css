@@ -9964,7 +9964,7 @@ span.limit-ellipsis {
   .reg-view label.item.has-error-lr {
     border: 1px solid red; }
   .reg-view label.item.valid-lr {
-    border: 1px solid green; }
+    border: none; }
   .reg-view .form-errors {
     margin: 5px 0; }
   .reg-view .form-error {

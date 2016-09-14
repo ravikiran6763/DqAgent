@@ -34,7 +34,7 @@
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.age.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.age.$valid  && signinForm.$submitted}">
                   <span class="input-label">DOB</span>
-                  <input type="date" name="age" ng-model="doctor.age" mask-clean='true' mask='99' restrict="reject" clean="true" required>
+                  <input type="date" name="age" ng-model="doctor.age" required>
 
                 </label>
 
