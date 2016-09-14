@@ -15,6 +15,9 @@
                   <span class="input-label">First Name</span>
                   <input type="text" name="fname"  ng-model="doctor.fname" required>
                 </label>
+                    <!-- <div class="form-errors" ng-messages="signinForm.fname.$error" >
+                    <div class="form-error" >This field is Required</div>
+                    </div> -->
 
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.mname.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.mname.$valid  && signinForm.$submitted}">
@@ -30,8 +33,8 @@
 
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.age.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.age.$valid  && signinForm.$submitted}">
-                  <span class="input-label">Age</span>
-                  <input type="number" name="age" ng-model="doctor.age" mask-clean='true' mask='99' restrict="reject" clean="true" required>
+                  <span class="input-label">DOB</span>
+                  <input type="date" name="age" ng-model="doctor.age" mask-clean='true' mask='99' restrict="reject" clean="true" required>
 
                 </label>
 
@@ -168,9 +171,9 @@
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fee.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fee.$valid  && signinForm.$submitted}">
                   <span class="input-label">Fee</span>
-                  <input type="text" ng-readonly='true' value="200"  ng-model="doctor.fee" />
+                  <!-- <input type="text" ng-readonly='true' value="200"  ng-model="doctor.fee" /> -->
 
-                  <!-- <input type="number" name="fee"  ng-model="doctor.fee" placeholder="200"  ng-value="200" required> -->
+                  <input type="number" name="fee"  ng-model="doctor.fee" placeholder="200"  ng-value="200" required>
                 </label>
 
 
