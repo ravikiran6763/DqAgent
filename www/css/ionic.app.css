@@ -9941,6 +9941,20 @@ span.limit-ellipsis {
   background-repeat: no-repeat;
   background-size: 120px 14px; }
 
+.updatePopup .popup {
+  width: 90% !important;
+  position: relative;
+  bottom: 0; }
+
+.updatePopup .popup-head {
+  border-bottom: 0px;
+  text-align: center; }
+
+.updatePopup .popup-title {
+  margin: 0;
+  padding: 0;
+  font-size: 15px; }
+
 .reg-view {
   background-color: #e2e2e2 !important; }
   .reg-view .submitted input.ng-invalid:not(:focus) {
@@ -9950,7 +9964,7 @@ span.limit-ellipsis {
   .reg-view label.item.has-error-lr {
     border: 1px solid red; }
   .reg-view label.item.valid-lr {
-    border: 1px solid green; }
+    border: none; }
   .reg-view .form-errors {
     margin: 5px 0; }
   .reg-view .form-error {
@@ -10029,6 +10043,24 @@ span.limit-ellipsis {
 
 .update-view {
   background-color: #e2e2e2 !important; }
+  .update-view .popup-container .popup {
+    width: 90% !important;
+    max-width: 100%;
+    max-height: 90%;
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
   .update-view .item {
     border-bottom: 1px #f8f8f8;
     background-color: #e0dcdc;

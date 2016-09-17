@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $rootScope, $state, $localStorage, $ionicPopup, agentService){
+AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $rootScope, $state, $localStorage, $ionicPopup, $cordovaToast, agentService){
   $scope.user={};
 
   $scope.sendForm = function($event,form)
@@ -21,7 +21,10 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
 
   $scope.doLogIn = function()
   {
-
+    console.log($scope.user.phone.length);
+    if($scope.user.phone.length < 10){
+      Toast.show("I'm a toast", '5000', 'center');
+    }
     $ionicLoading.show();
 
     $localStorage.user = $scope.user.phone;

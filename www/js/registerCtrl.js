@@ -1,8 +1,8 @@
-AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
+AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage, $cordovaToast, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
 console.log('regController');
   $scope.doctor={};
   // console.log($scope.gPlace);
-
+$scope.fee=200;
   $scope.disableTap = function() {
           var container = document.getElementsByClassName('pac-container');
           angular.element(container).attr('data-tap-disabled', 'true');
@@ -21,21 +21,25 @@ console.log('regController');
        $scope.submitted = true;
 
   };
+var currentTime = new Date();
+var year = currentTime.getFullYear() ;
 
     var range = [];
-    for(var i=1980;i<2016;i++) {
+    for(var i=1980; i<= year; i++) {
     range.push(i);
     }
 
     $scope.range = range;
+
 /* get all the specialities*/
     agentService.getMedicalSpecialist().then(function(response){
-      // console.log('successfull data', response);
+      console.log('successfull data', response);
       $scope.specialitiesList = response;
 
    }).catch(function(error){
        console.log('failure data', error);
    });
+
 /*to get bank names*/
    agentService.bankNames().then(function(response){
     //  console.log('successfull data', response);
@@ -44,6 +48,7 @@ console.log('regController');
   }).catch(function(error){
       console.log('failure data', error);
   });
+
 /*list of languages*/
   agentService.languages().then(function(response){
     // console.log('successfull data', response);
@@ -53,15 +58,7 @@ console.log('regController');
      console.log('failure data', error);
  });
 
-/*list of city and cityies*/
- agentService.stateAndCity().then(function(response){
-  //  console.log('successfull data', response);
-   $scope.locationList = response;
-
-}).catch(function(error){
-    console.log('failure data', error);
-});
-
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 $scope.registerDoc=function(isFormValid){
 
   if(isFormValid) {
@@ -97,30 +94,28 @@ $scope.registerDoc=function(isFormValid){
               image3:$rootScope.imgURI3
             };
 
-            if($scope.doctor.fname || $scope.doctor.mname && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
+            if($scope.doctor.fname  && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
               $scope.doctor.degrees && $scope.doctor.since && $scope.doctor.age && $scope.doctor.sex &&
-              $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 || $scope.doctor.address2 && $scope.doctor.pin &&
+              $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 && $scope.doctor.pin &&
               $scope.doctor.language1 && $scope.doctor.bankName && $scope.doctor.accNum && $scope.doctor.ifsc &&
               $scope.doctor.fee && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
               )
               {
                 if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
-                                agentService.registerDoc(docRegDetails).then(function(response){
+                                agentService.registerDoctor(docRegDetails).then(function(response){
                                 console.log('successfull data', response);
                                 $scope.registeredDoc = response;
                                 console.log($scope.registeredDoc);
                                 if($scope.registeredDoc){
-                                    $ionicLoading.show({
-                                        template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
-                                      });
-
+                                  $ionicLoading.show({
+                                      template: '<p>Registering Doctor...</p><ion-spinner></ion-spinner>'
+                                    });
                                       $timeout(function (){
                                         // alert('hello');
                                         $window.location.reload();
-
-                                       $ionicLoading.hide();
-                                     }, 8000);
+                                     }, 3000);
+                                     $ionicLoading.hide();
                                 }
                              }).catch(function(error){
                                  console.log('failure data', error);
@@ -131,6 +126,153 @@ $scope.registerDoc=function(isFormValid){
                   alert('kuidly click doctor images')
                 }
 
+            }
+            else {
+              if(!$scope.doctor.fname){
+                $cordovaToast.showLongCenter('Enter First Name', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+                // alert('please enter First Name')
+              }
+              else if(!$scope.doctor.lname){
+                $cordovaToast.showLongCenter('Enter Last Name', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.age){
+                $cordovaToast.showLongCenter('Enter DOB', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.degrees){
+                $cordovaToast.showLongCenter('Enter Degrees', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.since){
+                $cordovaToast.showLongCenter('Enter Practincing Since', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+
+
+
+              else if(!$scope.doctor.sex){
+                $cordovaToast.showLongCenter('Enter Doctor gender', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.country){
+                $cordovaToast.showLongCenter('Enter Doctor Country', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.city){
+                $cordovaToast.showLongCenter('Enter valid City', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.address1){
+                $cordovaToast.showLongCenter('Enter valid address', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.pin){
+                $cordovaToast.showLongCenter('Enter valid pin', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.email){
+                $cordovaToast.showLongCenter('Enter a valid email', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.language1){
+                $cordovaToast.showLongCenter('select atleast one language', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.mobile){
+                $cordovaToast.showLongCenter('Enter a valid Mobile Number', 'short', 'center').then(function(success) {
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+
+              else if(!$scope.doctor.bankName){
+                $cordovaToast.showLongCenter('select bank', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.accNum){
+                $cordovaToast.showLongCenter('Enter Account Number', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.ifsc){
+                $cordovaToast.showLongCenter('Enter IFSC', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.fee){
+                $cordovaToast.showLongCenter('Enter Consultation Fee', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.speciality){
+                $cordovaToast.showLongCenter('Select atleast one speciality', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.mciReg){
+                $cordovaToast.showLongCenter('Select Yes/No for MCI Reg', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
+              else if(!$scope.doctor.mciNum){
+                $cordovaToast.showLongCenter('Enter MCI Reg Number', 'short', 'center').then(function(success){
+                // success
+                }, function (error) {
+                // error
+                });
+              }
             }
 
 
@@ -226,28 +368,7 @@ $scope.registerDoc=function(isFormValid){
          });
      };
 ////////////////////////////////////////////////////////////////////////////////
-$scope.allLanguages = [
-  {name: 'Arabic'},
-  {name: 'English'},
-  {name: 'French'},
-  {name: 'German'},
-  {name: 'Hindi'},
-  {name: 'Japanese'},
-  {name: 'Korean'},
-  {name: 'Mandarin'},
-  {name: 'Portuguese'},
-  {name: 'Russian'},
-  {name: 'Spanish'},
-  {name: 'Urdu'}
-  ];
-$scope.user1 = {
-  id: 1,
-  name: 'Foo Bar',
-  languages: [
-    {name: 'English'},
-    {name: 'Spanish'}
-  ]
-};
+
 
 $scope.addLanguageToUser = function (language, user1) {
   $scope.user1.languages.push(language)

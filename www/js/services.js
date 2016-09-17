@@ -70,7 +70,7 @@ angular.module('starter.services', [])
       };
 
 
-      this.registerDoc = function(docDetails){
+      this.registerDoctor = function(docDetails){
         console.log('service',docDetails);
             var deferred = $q.defer();
             // console.log(BASE_URL.url + API.doctorRegistration);
