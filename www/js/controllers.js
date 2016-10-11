@@ -23,7 +23,11 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
   {
     console.log($scope.user.phone.length);
     if($scope.user.phone.length < 10){
-      Toast.show("I'm a toast", '5000', 'center');
+      $cordovaToast.showLongCenter('Enter valid 10 digit Number', 'short', 'center').then(function(success){
+      // success
+      }, function (error) {
+      // error
+      });
     }
     $ionicLoading.show();
 
@@ -38,6 +42,12 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
       password : $scope.user.password
     };
     console.log(userDetails);
+
+    var uname1 = "greet+"+$scope.user.phone;
+
+      var uname1 = "greet+"+$scope.user.phone;
+      var pw1 = "DQ_patient";
+
     agentService.agentLogin(userDetails)
         .then(function(response){
       //  console.log(response);

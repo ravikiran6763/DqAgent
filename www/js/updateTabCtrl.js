@@ -1,4 +1,4 @@
-AgentApp.controller('updateTabCtrl', function($scope, $ionicLoading, $localStorage, $rootScope, $ionicModal, $window, $timeout, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
+AgentApp.controller('updateTabCtrl', function($scope, $ionicLoading, $localStorage, $rootScope, $ionicModal, $timeout, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
 console.log('updateTabCtrl');
 $scope.updateValues={};
 
