@@ -104,7 +104,6 @@ $scope.registerDoc=function(isFormValid){
                 if($rootScope.imgURI1 && $rootScope.imgURI2 && $rootScope.imgURI3){
 
                                 agentService.registerDoctor(docRegDetails).then(function(response){
-                                console.log('successfull data', response);
                                 $scope.registeredDoc = response;
                                 console.log($scope.registeredDoc);
                                 if($scope.registeredDoc){
@@ -113,7 +112,7 @@ $scope.registerDoc=function(isFormValid){
                                     });
                                       $timeout(function (){
                                         // alert('hello');
-                                        $window.location.reload();
+                                        // $window.location.reload();
                                      }, 3000);
                                      $ionicLoading.hide();
                                 }

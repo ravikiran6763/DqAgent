@@ -43,10 +43,6 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
     };
     console.log(userDetails);
 
-    var uname1 = "greet+"+$scope.user.phone;
-
-      var uname1 = "greet+"+$scope.user.phone;
-      var pw1 = "DQ_patient";
 
     agentService.agentLogin(userDetails)
         .then(function(response){
@@ -56,6 +52,24 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
         {
           $rootScope.agentDetails=response;
             console.log('agent loggedin', $rootScope.agentDetails);
+
+            var uname1 = "greet+"+$scope.user.phone;
+            var pw1 = "DQ_agent";
+
+            var success = function(message)
+            {
+              alert(message);
+            }
+            var failure = function()
+            {
+              alert("Error calling Hello Plugin");
+            }
+
+
+            //hello.login(uname1,pw1,success, failure);
+
+            // hello.login(uname1,pw1,success, failure);
+
             $state.go('tabs.home');
         }
 
