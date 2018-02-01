@@ -1,5 +1,5 @@
 AgentApp.controller('tabsCtrl', function($scope,$ionicLoading, $localStorage, $rootScope, $timeout, $state, agentService) {
-  console.log('TabCtrl');
+  // console.log('TabCtrl');
   $scope.hometab=function(){
     console.log('clickd');
     $ionicLoading.show({

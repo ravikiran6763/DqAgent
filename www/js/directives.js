@@ -1,4 +1,4 @@
-angular.module('starter.directives', [])
+angular.module('AgentApp.directives', [])
 
 .directive('inputDropdown', function($compile) {
 

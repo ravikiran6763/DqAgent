@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('AgentApp.services', [])
 
 .service('agentService', function ($http,$rootScope, BASE_URL,API, $q){
 
@@ -111,6 +111,21 @@ angular.module('starter.services', [])
                 });
                 return deferred.promise;
             };
+
+
+            this.getAgentPassword = function(number){
+              console.log('service',number);
+                  var deferred = $q.defer();
+                  console.log(BASE_URL.url + API.getAgentPassword);
+                  $http.post(BASE_URL.url + API.getAgentPassword,number).then ( function(response) {
+                      if(response.status === 200){
+                        deferred.resolve(response.data);
+                      }else{
+                        deferred.reject(response.data)
+                      }
+                  });
+                  return deferred.promise;
+              };
 
 
 });

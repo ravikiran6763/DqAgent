@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content=" default-src *  https://*.razorpay.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
     <title></title>
 
 
@@ -14,7 +16,7 @@
 
     <!-- <script src="lib/ionic-multiselect/dist/ionic-multiselect.min.js"></script> -->
     <!-- ionic/angularjs js -->
-<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&types=region"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&types=region"></script>
 
 
     <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -57,7 +59,7 @@
     <script src="js/updateTabCtrl.js"></script>
 
   </head>
-  <body ng-app="starter">
+  <body ng-app="AgentApp">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->

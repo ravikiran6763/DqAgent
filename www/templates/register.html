@@ -5,7 +5,7 @@
 
 
       <form name="signinForm" novalidate ng-submit="registerDoc($event)" >
-    
+
             <div class="list" scroll="true">
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.fname.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fname.$valid  && signinForm.$submitted}">
@@ -163,6 +163,12 @@
                        ng-class="{ 'has-error-lr' : signinForm.ifsc.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.ifsc.$valid  && signinForm.$submitted}">
                   <span class="input-label">IFSC</span>
                   <input type="text" name="ifsc"  ng-model="doctor.ifsc" required>
+                </label>
+
+                <label class="item item-input"
+                       ng-class="{ 'has-error-lr' : signinForm.pan.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.pan.$valid  && signinForm.$submitted}">
+                  <span class="input-label">PAN Num</span>
+                  <input type="text" name="pan"  ng-model="doctor.pan" required>
                 </label>
 
                 <label class="item item-input"

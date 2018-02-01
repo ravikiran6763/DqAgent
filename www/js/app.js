@@ -1,8 +1,8 @@
 
-var AgentApp=angular.module('starter', [
+var AgentApp=angular.module('AgentApp', [
   'ionic',
-  'starter.services',
-  'starter.directives',
+  'AgentApp.services',
+  'AgentApp.directives',
   'ngStorage',
   'ngCordova',
   'ngMask',
@@ -22,9 +22,9 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
 
     .state('forgotpassword', {
       url: '/forgot-password',
-      templateUrl: 'templates/forgot-password.html'
+      templateUrl: 'templates/forgot-password.html',
+      controller: 'passwordCtrl'
     })
-
     .state('tabs', {
       url: '/tab',
       abstract: true,
@@ -97,4 +97,21 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-;
+$urlRouterProvider.otherwise(function($injector,$localStorage,$location,$rootScope) {
+
+  var $state = $injector.get('$state');
+  var Storage = $injector.get('$localStorage');
+  var rootScope = $injector.get('$rootScope');
+
+  console.log(Storage.doctororpatient);
+
+  if(Storage.doctororpatient === 'agent'){
+    Storage.showConnecting = true;
+    return '/app/patientScreens';
+  }
+  else{
+    Storage.showConnecting = false;
+    return '/auth/loginNew';
+  }
+
+});

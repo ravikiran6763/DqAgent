@@ -10089,6 +10089,9 @@ span.limit-ellipsis {
   .sigIn-view ion-content {
     width: 90% !important;
     margin: 0 auto; }
+  .sigIn-view a {
+    color: rgba(0, 0, 0, 0.75) !important;
+    text-decoration: underline; }
   .sigIn-view .logoContainer {
     margin-top: 5vh; }
     .sigIn-view .logoContainer .logo {
@@ -10119,16 +10122,14 @@ span.limit-ellipsis {
     margin: 0 auto; }
   .sigIn-view input[type="tel"] {
     font-size: 4vw;
-    padding-left: 4vw;
-    padding-top: 2vh;
+    padding: 0 0 0 15px !important;
     margin: 0 auto;
     font-family: Ubuntu,bold,sans-serif !important;
     height: 50px;
     width: 100%; }
   .sigIn-view input[type="password"] {
     font-size: 4vw;
-    padding-top: 2vh;
-    padding-left: 4vw;
+    padding: 0 0 0 15px !important;
     /* margin-top: 1vh; */
     height: 50px;
     font-family: Ubuntu,bold,sans-serif !important;
@@ -10140,6 +10141,111 @@ span.limit-ellipsis {
     background-color: red;
     margin: 0 auto;
     width: 80% !important; }
+  .sigIn-view .top-content {
+    margin-top: 10%;
+    height: 35% !important; }
+    .sigIn-view .top-content .regTitle {
+      width: 80% !important;
+      height: 100% !important;
+      margin: 0 auto !important; }
+      .sigIn-view .top-content .regTitle .regHeader {
+        position: absolute !important;
+        width: 80% !important;
+        margin: 0 auto !important; }
+        .sigIn-view .top-content .regTitle .regHeader .backButton i {
+          position: absolute;
+          font-size: 210%; }
+        .sigIn-view .top-content .regTitle .regHeader .backButton p {
+          margin-top: 9%;
+          font-size: 145%;
+          margin-left: -70%; }
+        .sigIn-view .top-content .regTitle .regHeader p {
+          margin-top: 9%;
+          font-size: 100%;
+          text-align: center; }
+        .sigIn-view .top-content .regTitle .regHeader .regFlowImg {
+          width: 50% !important;
+          margin: 0 auto; }
+          .sigIn-view .top-content .regTitle .regHeader .regFlowImg img {
+            width: 100%;
+            margin-top: 2vh; }
+        .sigIn-view .top-content .regTitle .regHeader .regMsg {
+          width: 100% !important;
+          margin: 0 auto !important; }
+          .sigIn-view .top-content .regTitle .regHeader .regMsg p {
+            font-size: 92%;
+            color: black; }
+        .sigIn-view .top-content .regTitle .regHeader h3 {
+          text-align: center;
+          font-size: 130%;
+          color: black; }
+  .sigIn-view .form-content {
+    height: 20% !important;
+    margin-top: 0 !important; }
+    .sigIn-view .form-content .form-group {
+      width: 100% !important;
+      margin: 0 auto; }
+      .sigIn-view .form-content .form-group input[type="tel"] {
+        padding-left: 15%;
+        width: 100% !important;
+        padding: 0% 0 0 15%; }
+      .sigIn-view .form-content .form-group .input-group-addon {
+        border: none;
+        padding: 2px 4px 2px 4px !important;
+        -webkit-transition: border-color ease-in-out .15s;
+        transition: border-color ease-in-out .15s; }
+      .sigIn-view .form-content .form-group .input-group-addon:first-child {
+        position: absolute !important;
+        border: none;
+        background: transparent;
+        display: table;
+        margin: 5% 0 0 2% !important;
+        left: 11% !important;
+        z-index: 999; }
+      .sigIn-view .form-content .form-group .input-group-addon:not(:first-child):not(:last-child) {
+        background-color: white;
+        border: none;
+        display: table-caption;
+        position: absolute;
+        top: 34% !important;
+        left: 1% !important; }
+      .sigIn-view .form-content .form-group .input-group-focus .input-group-addon {
+        border-color: none !important; }
+      .sigIn-view .form-content .form-group .has-error .input-group-addon {
+        border-color: #843534 !important; }
+      .sigIn-view .form-content .form-group .has-success .input-group-addon {
+        border-color: #2b542c !important; }
+      .sigIn-view .form-content .form-group .has-warning .input-group-addon {
+        border-color: #66512c !important; }
+  .sigIn-view .bottom-content {
+    width: 90%;
+    margin: 0 auto; }
+    .sigIn-view .bottom-content .button {
+      width: 90% !important;
+      margin: 0 auto; }
+    .sigIn-view .bottom-content .tAndC {
+      width: 80% !important;
+      height: 20% !important;
+      margin: 0 auto; }
+      .sigIn-view .bottom-content .tAndC .terms {
+        width: 80% !important;
+        height: 100%;
+        margin: 0 auto; }
+        .sigIn-view .bottom-content .tAndC .terms h2 {
+          font-size: 80%;
+          color: #fff;
+          text-align: center;
+          margin-top: 3%;
+          line-height: 1.5; }
+          .sigIn-view .bottom-content .tAndC .terms h2 a {
+            color: inherit !important;
+            text-decoration: underline !important; }
+    .sigIn-view .bottom-content .button-stable {
+      background-color: #6aa13e; }
+    .sigIn-view .bottom-content .button-stable.activated {
+      background-color: #557a23 !important; }
+    .sigIn-view .bottom-content .button-calm.activated {
+      background-color: #026451 !important; }
 
 .modalView {
   background-color: #e2e2e2; }

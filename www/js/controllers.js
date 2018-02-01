@@ -23,13 +23,22 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
   {
     console.log($scope.user.phone.length);
     if($scope.user.phone.length < 10){
-      $cordovaToast.showLongCenter('Enter valid 10 digit Number', 'short', 'center').then(function(success){
-      // success
-      }, function (error) {
-      // error
-      });
+
+      window.plugins.toast.showWithOptions({
+             message: "Enter valid 10 digit Number",
+             duration: "short", // 2000 ms
+             position: "bottom",
+             styling: {
+                 opacity: 1.0, // 0.0 (transparent) to 1.0 (opaque). Default 0.8
+                 backgroundColor: '#9d2122', // make sure you use #RRGGBB. Default #333333
+                 textColor: '#ffffff', // Ditto. Default #FFFFFF
+                 textSize: 13, // Default is approx. 13.
+                 cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100
+                 horizontalPadding: 16, // iOS default 16, Android default 50
+                 verticalPadding: 12 // iOS default 12, Android default 30
+             }
+     });
     }
-    $ionicLoading.show();
 
     $localStorage.user = $scope.user.phone;
     $localStorage.pass = $scope.user.password;
@@ -37,6 +46,8 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
 
   if($scope.user.phone && $scope.user.password)
   {
+    $ionicLoading.show();
+
     var userDetails={
       userNum : $scope.user.phone,
       password : $scope.user.password
@@ -46,46 +57,33 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
 
     agentService.agentLogin(userDetails)
         .then(function(response){
-      //  console.log(response);
+       console.log(response);
 
         if(response)
         {
           $rootScope.agentDetails=response;
             console.log('agent loggedin', $rootScope.agentDetails);
-
-            var uname1 = "greet+"+$scope.user.phone;
-            var pw1 = "DQ_agent";
-
-            var success = function(message)
-            {
-              alert(message);
-            }
-            var failure = function()
-            {
-              alert("Error calling Hello Plugin");
-            }
-
-
-            //hello.login(uname1,pw1,success, failure);
-
-            // hello.login(uname1,pw1,success, failure);
-
             $state.go('tabs.home');
         }
 
 
         else{
 
-          $scope.myPopup = $ionicPopup.show({
-            title: 'Invalid Credentials',
-            template: '<div ><p style="color:#fff; margin: -21px 0 0 15px; ">Please try again if the problem persists call us directly.</p></div><div style="position: absolute; margin-top: 0vh; margin-bottom: 0; top: -17px;left: 88vw; background: #6fa02d; border-radius: 22px; font-size: 8vw; color: #fff; text-align: end; padding: 7px; height:30px;" ng-controller="SignInCtrl" ng-Click="closethis();"><span style="color:red;">X<span></div>',
-            // cssClass: 'loginPopup',
-            scope: $scope,
-          });
-          $scope.closethis = function()
-          {
-          $scope.myPopup.close();
-          };
+
+          window.plugins.toast.showWithOptions({
+                 message: "Invalid Credentials",
+                 duration: "short", // 2000 ms
+                 position: "bottom",
+                 styling: {
+                     opacity: 1.0, // 0.0 (transparent) to 1.0 (opaque). Default 0.8
+                     backgroundColor: '#9d2122', // make sure you use #RRGGBB. Default #333333
+                     textColor: '#ffffff', // Ditto. Default #FFFFFF
+                     textSize: 13, // Default is approx. 13.
+                     cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100
+                     horizontalPadding: 16, // iOS default 16, Android default 50
+                     verticalPadding: 12 // iOS default 12, Android default 30
+                 }
+         });
 
         }
 
@@ -104,4 +102,63 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
 
   }
 
-});
+})
+
+AgentApp.controller('passwordCtrl', function($scope,$rootScope, $ionicConfig,$cordovaToast,agentService) {
+
+  console.log('controllercalled');
+  $scope.user={};
+
+  $scope.recoverPassword=function(){
+    console.log($scope.user.phone);
+
+    agentService.getAgentPassword($scope.user.phone).then(function(response){
+       console.log(response);
+       if(response === 'NA'){
+         // $cordovaToast.showLongCenter('Number does not exist', 'short', 'bottom').then(function(success) {
+         // // success
+         // }, function (error) {
+         // // error
+         // });
+
+         window.plugins.toast.showWithOptions({
+         				message: "Number does not exist",
+         				duration: "short", // 2000 ms
+         				position: "bottom",
+         				styling: {
+         				opacity: 1.0, // 0.0 (transparent) to 1.0 (opaque). Default 0.8
+         				backgroundColor: '#9d2122', // make sure you use #RRGGBB. Default #333333
+         				textColor: '#ffffff', // Ditto. Default #FFFFFF
+         				textSize: 13, // Default is approx. 13.
+         				cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100
+         				horizontalPadding: 16, // iOS default 16, Android default 50
+         				verticalPadding: 12 // iOS default 12, Android default 30
+         				}
+ 				});
+       }
+       else{
+
+         window.plugins.toast.showWithOptions({
+         				message: "Password sent to your registered mobile number",
+         				duration: "short", // 2000 ms
+         				position: "bottom",
+         				styling: {
+             				opacity: 1.0, // 0.0 (transparent) to 1.0 (opaque). Default 0.8
+             				backgroundColor: '#026451', // make sure you use #RRGGBB. Default #333333
+             				textColor: '#ffffff', // Ditto. Default #FFFFFF
+             				textSize: 13, // Default is approx. 13.
+             				cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100
+             				horizontalPadding: 16, // iOS default 16, Android default 50
+             				verticalPadding: 12 // iOS default 12, Android default 30
+         				}
+ 				});
+       }
+    }).catch(function(error){
+      console.log('failure data', error);
+    });
+
+  }
+
+})
+
+;

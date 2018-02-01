@@ -8,7 +8,8 @@
  */
 AgentApp.constant('BASE_URL', {
 
-        'url' : 'http://ec2-54-187-148-143.us-west-2.compute.amazonaws.com/'
+        // 'url' : 'http://ec2-54-187-148-143.us-west-2.compute.amazonaws.com/'
+          'url' : 'http://ec2-13-126-101-210.ap-south-1.compute.amazonaws.com/'
     })
 .constant('API', {
           /*COMMON APIS*/
@@ -26,7 +27,9 @@ AgentApp.constant('BASE_URL', {
         'updateDoctor' : 'dqagent/updateDoctor.php',
         'banklist' : 'dqagent/banklist.php',
         'languageList' : 'dqagent/languageList.php',
-        'location' : 'dqagent/location.php'
+        'location' : 'dqagent/location.php',
+        'getAgentPassword' : 'dqagent/getAgentPassword.php'
+
 
 
 
