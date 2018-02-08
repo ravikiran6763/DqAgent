@@ -99,8 +99,7 @@ $scope.registerDoc=function(isFormValid){
             if( $scope.doctor.fname  && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
                 $scope.doctor.degrees && $scope.doctor.since && $scope.doctor.age && $scope.doctor.sex &&
                 $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 && $scope.doctor.pin &&
-                $scope.doctor.language1 && $scope.doctor.bankName && $scope.doctor.accNum && $scope.doctor.ifsc && $scope.doctor.pan&&
-                $scope.doctor.fee && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
+                $scope.doctor.language1 && $scope.doctor.bankName && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
               )
               {
 
@@ -247,41 +246,41 @@ $scope.registerDoc=function(isFormValid){
                 });
               }
 
-              else if(!$scope.doctor.bankName){
-                $cordovaToast.showLongCenter('select bank', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-              else if(!$scope.doctor.accNum){
-                $cordovaToast.showLongCenter('Enter Account Number', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-              else if(!$scope.doctor.ifsc){
-                $cordovaToast.showLongCenter('Enter IFSC', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-              else if(!$scope.doctor.pan){
-                $cordovaToast.showLongCenter('Enter PAN Number', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-              else if(!$scope.doctor.fee){
-                $cordovaToast.showLongCenter('Enter Consultation Fee', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
+              // else if(!$scope.doctor.bankName){
+              //   $cordovaToast.showLongCenter('select bank', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
+              // else if(!$scope.doctor.accNum){
+              //   $cordovaToast.showLongCenter('Enter Account Number', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
+              // else if(!$scope.doctor.ifsc){
+              //   $cordovaToast.showLongCenter('Enter IFSC', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
+              // else if(!$scope.doctor.pan){
+              //   $cordovaToast.showLongCenter('Enter PAN Number', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
+              // else if(!$scope.doctor.fee){
+              //   $cordovaToast.showLongCenter('Enter Consultation Fee', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
               else if(!$scope.doctor.speciality){
                 $cordovaToast.showLongCenter('Select atleast one speciality', 'short', 'bottom').then(function(success){
                 // success
@@ -296,19 +295,22 @@ $scope.registerDoc=function(isFormValid){
                 // error
                 });
               }
-              else if(!$scope.doctor.mciNum){
+
+              else if($scope.doctor.mciReg === 'Yes' && !$scope.doctor.mciNum){
                 $cordovaToast.showLongCenter('Enter MCI Reg Number', 'short', 'bottom').then(function(success){
                 // success
                 }, function (error) {
                 // error
                 });
               }
+
+              }
             }
 
 
 
   }
-}
+
 
   $scope.signIn=function(){
     console.log($scope.doctor);

@@ -141,42 +141,37 @@
                 </label>
 
 
-                <label class="item item-input item-select"
-                       ng-class="{ 'has-error-lr' : signinForm.bankName.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.bankName.$valid  && signinForm.$submitted}">
+                <label class="item item-input item-select">
                   <span class="input-label">Bank Name</span>
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
-                  <select name='Bank Name' ng-model="doctor.bankName" required>
+                  <select name='Bank Name' ng-model="doctor.bankName" >
                     <option ng-repeat="bank in bankList" value={{bank.bankName}}>{{bank.bankName}}</option>
                   </select>
                 </label>
 
 
 
-                <label class="item item-input"
-                       ng-class="{ 'has-error-lr' : signinForm.accNum.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.accNum.$valid  && signinForm.$submitted}">
+                <label class="item item-input">
                   <span class="input-label">A/C Num</span>
-                  <input type="number" name="accNum"  ng-model="doctor.accNum"  required>
+                  <input type="number" name="accNum"  ng-model="doctor.accNum"  >
                 </label>
 
-                <label class="item item-input"
-                       ng-class="{ 'has-error-lr' : signinForm.ifsc.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.ifsc.$valid  && signinForm.$submitted}">
+                <label class="item item-input">
                   <span class="input-label">IFSC</span>
-                  <input type="text" name="ifsc"  ng-model="doctor.ifsc" required>
+                  <input type="text" name="ifsc"  ng-model="doctor.ifsc" >
                 </label>
 
-                <label class="item item-input"
-                       ng-class="{ 'has-error-lr' : signinForm.pan.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.pan.$valid  && signinForm.$submitted}">
+                <label class="item item-input" >
                   <span class="input-label">PAN Num</span>
-                  <input type="text" name="pan"  ng-model="doctor.pan" required>
+                  <input type="text" name="pan"  ng-model="doctor.pan" >
                 </label>
 
                 <label class="item item-input"
-                       ng-class="{ 'has-error-lr' : signinForm.fee.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.fee.$valid  && signinForm.$submitted}">
+                  >
                   <span class="input-label">Fee</span>
                   <!-- <input type="text" ng-readonly='true' value="200"  ng-model="doctor.fee" /> -->
-
-                  <input type="number" name="fee"  ng-model="doctor.fee" placeholder="200"  ng-value="200" required>
+                  <input type="number" name="fee"  ng-model="doctor.fee" placeholder="200"  ng-value="200" >
                 </label>
 
 
@@ -209,7 +204,7 @@
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.mciNum.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.mciNum.$valid  && signinForm.$submitted}">
                   <span class="input-label">MCI Num</span>
-                  <input type="number" name="mciNum"  ng-model="doctor.mciNum" required>
+                  <input type="text" name="mciNum"  ng-model="doctor.mciNum" >
                 </label>
 
                 <div class="card" required>

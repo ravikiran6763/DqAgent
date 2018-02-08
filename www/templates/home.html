@@ -8,6 +8,7 @@
       </div>
     </div>
 
+<div class="card">
     <div class="row">
       <div class="col">Name</div>
       <div class="col  col-50">{{agent.agentFname}} {{agent.agentMname}} {{agent.agentLname}}</div>
@@ -30,8 +31,25 @@
     </div>
     <div class="row">
           <div class="col col-50 ">Doctors Registered</div>
-          <div class="col  ">12{{agent.agentAge}}</div>
+          <div class="col  ">{{agent.regCount}}</div>
     </div>
+    <div class="row">
+          <div class="col">PAN</div>
+          <div class="col  col-50">{{agent.agentPan}}</div>
+    </div>
+    <div class="row">
+          <div class="col col-50 ">Bank Name</div>
+          <div class="col  ">{{agent.agentBank}}</div>
+    </div>
+    <div class="row">
+          <div class="col col-50 ">A/C Num</div>
+          <div class="col  ">{{agent.agentBankAcc}}</div>
+    </div>
+    <div class="row">
+          <div class="col col-50 ">IFSC</div>
+          <div class="col  ">{{agent.agentIfsc}}</div>
+    </div>
+  </div>
 
 
 

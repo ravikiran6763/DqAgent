@@ -4,8 +4,11 @@
   "description": "DqAgent: An Ionic project",
   "dependencies": {
     "cordova-android": "^6.3.0",
+    "cordova-plugin-appcenter-analytics": "^0.1.3",
     "cordova-plugin-camera": "^4.0.1",
     "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-file": "^6.0.1",
+    "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-ionic-webview": "^1.1.11",
     "cordova-plugin-splashscreen": "~4.0.1",
     "cordova-plugin-whitelist": "1.3.1",
@@ -44,7 +47,9 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-x-toast": {}
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-appcenter-analytics": {}
     }
   }
 }

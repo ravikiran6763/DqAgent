@@ -97,21 +97,33 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
 
 })
 
-$urlRouterProvider.otherwise(function($injector,$localStorage,$location,$rootScope) {
-
-  var $state = $injector.get('$state');
-  var Storage = $injector.get('$localStorage');
-  var rootScope = $injector.get('$rootScope');
-
-  console.log(Storage.doctororpatient);
-
-  if(Storage.doctororpatient === 'agent'){
-    Storage.showConnecting = true;
-    return '/app/patientScreens';
-  }
-  else{
-    Storage.showConnecting = false;
-    return '/auth/loginNew';
-  }
-
+document.addEventListener('deviceready', function () {
+  codePush.checkForUpdate(function (update){
+    if (!update) {
+        console.log("The app is up to date.");
+    } else {
+        console.log("An update is available! Should we download it?");
+    }
 });
+});
+
+
+
+// $urlRouterProvider.otherwise(function($injector,$localStorage,$location,$rootScope) {
+//
+//   var $state = $injector.get('$state');
+//   var Storage = $injector.get('$localStorage');
+//   var rootScope = $injector.get('$rootScope');
+//
+//   console.log(Storage.doctororpatient);
+//
+//   if(Storage.doctororpatient === 'agent'){
+//     Storage.showConnecting = true;
+//     return '/app/patientScreens';
+//   }
+//   else{
+//     Storage.showConnecting = false;
+//     return '/auth/loginNew';
+//   }
+//
+// });
