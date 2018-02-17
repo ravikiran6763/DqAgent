@@ -64,6 +64,22 @@ AgentApp.controller('SignInCtrl', function($scope, $ionicLoading, $timeout, $roo
           $rootScope.agentDetails=response;
             console.log('agent loggedin', $rootScope.agentDetails);
             $state.go('tabs.home');
+
+            agentService.languages().then(function(response){
+              console.log('Languages', response);
+              $rootScope.languageList = response;
+
+           }).catch(function(error){
+               console.log('failure data', error);
+           });
+
+           agentService.getMedicalSpecialist().then(function(response){
+             console.log('successfull data', response);
+             $rootScope.specialitiesList = response;
+
+          }).catch(function(error){
+              console.log('failure data', error);
+          });
         }
 
 

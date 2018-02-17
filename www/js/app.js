@@ -96,16 +96,16 @@ AgentApp.config(function($stateProvider, $urlRouterProvider) {
         }, 100);
 
 })
-
-document.addEventListener('deviceready', function () {
-  codePush.checkForUpdate(function (update){
-    if (!update) {
-        console.log("The app is up to date.");
-    } else {
-        console.log("An update is available! Should we download it?");
-    }
-});
-});
+// 
+// document.addEventListener('deviceready', function () {
+//   codePush.checkForUpdate(function (update){
+//     if (!update) {
+//         console.log("The app is up to date.");
+//     } else {
+//         console.log("An update is available! Should we download it?");
+//     }
+// });
+// });
 
 
 

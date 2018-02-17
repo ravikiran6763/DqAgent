@@ -1,4 +1,4 @@
-AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage, $cordovaToast, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
+AgentApp.controller('registerTabCtrl', function($ionicPlatform, $scope, $ionicLoading, $localStorage,$cordovaDatePicker, $cordovaToast, $rootScope, $ionicPopup, $state, $window, $timeout, $cordovaCamera, cameraService, agentService) {
 console.log('regController');
   $scope.doctor={};
   // console.log($scope.gPlace);
@@ -34,7 +34,7 @@ var year = currentTime.getFullYear() ;
 /* get all the specialities*/
     agentService.getMedicalSpecialist().then(function(response){
       console.log('successfull data', response);
-      $scope.specialitiesList = response;
+      $rootScope.specialitiesList = response;
 
    }).catch(function(error){
        console.log('failure data', error);
@@ -52,11 +52,33 @@ var year = currentTime.getFullYear() ;
 /*list of languages*/
   agentService.languages().then(function(response){
     // console.log('successfull data', response);
-    $scope.languageList = response;
+    $rootScope.languageList = response;
 
  }).catch(function(error){
      console.log('failure data', error);
  });
+
+ var options = {
+    date: new Date(),
+    mode: 'date', // or 'time'
+    // minDate: new Date() - 10000,
+    // allowOldDates: true,
+    allowFutureDates: false,
+    androidTheme : 3,
+    cancelButtonLabel: 'CANCEL',
+    cancelButtonColor: '#ff0101',
+    doneButtonLabel: 'DONE',
+    doneButtonColor: '#6aa13e'
+
+  };
+$rootScope.dateOfBirth='';
+ $scope.openDatePickerDOB = function(){
+   $cordovaDatePicker.show(options).then(function(date){
+     $rootScope.dateOfBirth=date;
+           console.log($rootScope.dateOfBirth);
+       });
+   // ionicDatePicker.openDatePicker(ipObj2);
+ };
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 $scope.registerDoc=function(isFormValid){
@@ -99,8 +121,7 @@ $scope.registerDoc=function(isFormValid){
             if( $scope.doctor.fname  && $scope.doctor.lname && $scope.doctor.email && $scope.doctor.mobile &&
                 $scope.doctor.degrees && $scope.doctor.since && $scope.doctor.age && $scope.doctor.sex &&
                 $scope.doctor.country && $scope.doctor.city && $scope.doctor.address1 && $scope.doctor.pin &&
-                $scope.doctor.language1 && $scope.doctor.bankName && $scope.doctor.speciality && $scope.doctor.mciReg && $scope.doctor.mciNum
-              )
+                $scope.doctor.language1 && $scope.doctor.speciality  )
               {
 
 
@@ -288,21 +309,21 @@ $scope.registerDoc=function(isFormValid){
                 // error
                 });
               }
-              else if(!$scope.doctor.mciReg){
-                $cordovaToast.showLongCenter('Select Yes/No for MCI Reg', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
-
-              else if($scope.doctor.mciReg === 'Yes' && !$scope.doctor.mciNum){
-                $cordovaToast.showLongCenter('Enter MCI Reg Number', 'short', 'bottom').then(function(success){
-                // success
-                }, function (error) {
-                // error
-                });
-              }
+              // else if(!$scope.doctor.mciReg){
+              //   $cordovaToast.showLongCenter('Select Yes/No for MCI Reg', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
+              //
+              // else if($scope.doctor.mciReg === 'Yes' && !$scope.doctor.mciNum){
+              //   $cordovaToast.showLongCenter('Enter MCI Reg Number', 'short', 'bottom').then(function(success){
+              //   // success
+              //   }, function (error) {
+              //   // error
+              //   });
+              // }
 
               }
             }

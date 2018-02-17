@@ -31,6 +31,8 @@
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.age.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.age.$valid  && signinForm.$submitted}">
                   <span class="input-label">DOB</span>
+
+                  <!-- <input type='text' placeholder="DOB"  ng-click="openDatePickerDOB();" ng-value="dateOfBirth| date: 'dd-MM-yyyy' " required readonly="true" > -->
                   <input type="date" name="age" ng-model="doctor.age" required>
 
                 </label>
@@ -115,24 +117,27 @@
 
                 <label class="item item-input item-select"
                        ng-class="{ 'has-error-lr' : signinForm.language1.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.language1.$valid  && signinForm.$submitted}">
-                  <span class="input-label">Language-1</span>
+                  <span class="input-label">Language</span>
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
-                  <select name='language1' ng-model="doctor.language1" required>
+                  <!-- <select name='language1' ng-model="doctor.language1" required>
                     <option ng-repeat="lang in languageList" value={{lang.language}}>{{lang.language}}</option>
 
+                  </select> -->
+                  <select name="language1" id="multipleSelect" ng-model="doctor.language1" multiple>
+                        <option ng-repeat="lang in languageList" value="{{lang.language}}">{{lang.language}}</option>
                   </select>
+
                 </label>
 
-                <label class="item item-input item-select"
+                <!-- <label class="item item-input item-select"
                        ng-class="{ 'has-error-lr' : signinForm.language2.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.language2.$valid  && signinForm.$submitted}">
                   <span class="input-label">Language-2</span>
-                  <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
                   <select name='language2' ng-model="doctor.language2" required>
                     <option ng-repeat="lang in languageList" value={{lang.language}}>{{lang.language}}</option>
                   </select>
-                </label>
+                </label> -->
 
                 <label class="item item-input"
                        ng-class="{ 'has-error-lr' : signinForm.mobile.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.mobile.$valid  && signinForm.$submitted}">
@@ -195,7 +200,7 @@
                   <span class="input-label">MCI Registered</span>
                   <!-- <input type="text" name="sex"  ng-model="doctor.sex" required> -->
 
-                  <select name='mciReg' ng-model="doctor.mciReg" required>
+                  <select name='mciReg' ng-model="doctor.mciReg" >
                     <option value='Yes'>Yes</option>
                     <option value='No'>No</option>
                   </select>
